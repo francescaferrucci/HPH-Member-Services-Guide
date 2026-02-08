@@ -414,6 +414,7 @@
             70% { box-shadow: 0 0 0 10px rgba(249, 200, 53, 0); }
             100% { box-shadow: 0 0 0 0 rgba(249, 200, 53, 0); }
         }
+        
         /* Search bar styling */
         .search-container {
             margin: 1rem 0 1.5rem 0;
@@ -493,11 +494,13 @@
             margin-bottom: 2rem;
             padding-bottom: 1.5rem;
             border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            scroll-margin-top: 20px;
         }
         
         .symptom-section:last-child {
             border-bottom: none;
         }
+        
         /* Responsive design */
         @media (max-width: 768px) {
             .flipbook-container {
@@ -561,6 +564,15 @@
                 padding: 0.5rem 0.9rem;
                 font-size: 0.85rem;
             }
+            
+            .symptom-nav {
+                gap: 0.3rem;
+            }
+            
+            .symptom-nav-btn {
+                padding: 0.3rem 0.6rem;
+                font-size: 0.75rem;
+            }
         }
     </style>
 </head>
@@ -576,7 +588,7 @@
         <div class="page-indicator">Page <span id="current-page">1</span> of <span id="total-pages">11</span></div>
     </header>
 
-    <!-- Flipbook container - THIS WAS MISSING! -->
+    <!-- Flipbook container -->
     <div class="flipbook-container">
         <div class="flipbook" id="flipbook">
             
@@ -585,7 +597,7 @@
                 <div class="cover-content">
                     <div class="cover-logo">
                         <img src="Hannah Logo 2colorPMS PetHospital.png" alt="Hannah Pet Hospital" style="max-width: 400px; height: auto;">
-                </div>
+                    </div>
                     
                     <h1 class="cover-title">Member Services Reference Manual</h1>
                     
@@ -881,7 +893,6 @@
             </div>
             
             <!-- Page 6: Triage & Symptom Guides - Part 1 -->
-                       <!-- Page 6: Triage & Symptom Guides - Part 1 -->
             <div class="page" id="page6">
                 <h1>Triage & Symptom Guides</h1>
 
@@ -1006,44 +1017,48 @@
                     </div>
                 </div>
                 
-                <!-- ... continue with other symptoms on Page 7 ... -->
-                
-                <h2>Skin/Itching</h2>
-                <ul>
-                    <li>Previous skin issues?</li>
-                    <li>When did it synptoms first start?</li>
-                    <li>Last bath shampoo used?</li>
-                    <li>Type of food/treats?</li>
-                    <li>Any recent diet changes? People food?</li>
-                    <li>Last flea prevention? Type?</li>
-                    <li>Severity (1-10 scale)?</li>
-                </ul>
-                <div class="info-box">
-                    <strong>Next Step:</strong> Send to Hannah Help Line for callback
+                <div class="symptom-section" id="skin">
+                    <h2>Skin/Itching</h2>
+                    <ul>
+                        <li>Previous skin issues?</li>
+                        <li>When did it synptoms first start?</li>
+                        <li>Last bath shampoo used?</li>
+                        <li>Type of food/treats?</li>
+                        <li>Any recent diet changes? People food?</li>
+                        <li>Last flea prevention? Type?</li>
+                        <li>Severity (1-10 scale)?</li>
+                    </ul>
+                    <div class="info-box">
+                        <strong>Next Step:</strong> Send to Hannah Help Line for callback
+                    </div>
                 </div>
                 
-                <h2>Ear Issues</h2>
-                <ul>
-                    <li>New problem? When started?</li>
-                    <li>Both ears affected?</li>
-                    <li>What is Member noting? (smell/discharge/debris)</li>
-                    <li>Current ear medications?</li>
-                    <li>Food? Diet changes? People food?</li>
-                </ul>
-                <div class="info-box">
-                    <strong>Next Step:</strong> Schedule D/O appointment + send home ear cleaner
+                <div class="symptom-section" id="ears">
+                    <h2>Ear Issues</h2>
+                    <ul>
+                        <li>New problem? When started?</li>
+                        <li>Both ears affected?</li>
+                        <li>What is Member noting? (smell/discharge/debris)</li>
+                        <li>Current ear medications?</li>
+                        <li>Food? Diet changes? People food?</li>
+                    </ul>
+                    <div class="info-box">
+                        <strong>Next Step:</strong> Schedule D/O appointment + send home ear cleaner
+                    </div>
                 </div>
                 
-                <h2>Blood in Urine/Stool</h2>
-                <ul>
-                    <li>History of urinary issues?</li>
-                    <li>When did Member first notice?</li>
-                    <li>Straining to urinate or have BM?</li>
-                    <li>Eating/drinking normal?</li>
-                    <li>Changes to diet? Current medication?</li>
-                </ul>
-                <div class="info-box">
-                    <strong>Next Step:</strong> Have Member drop off sample within 1 hour of collection
+                <div class="symptom-section" id="blood">
+                    <h2>Blood in Urine/Stool</h2>
+                    <ul>
+                        <li>History of urinary issues?</li>
+                        <li>When did Member first notice?</li>
+                        <li>Straining to urinate or have BM?</li>
+                        <li>Eating/drinking normal?</li>
+                        <li>Changes to diet? Current medication?</li>
+                    </ul>
+                    <div class="info-box">
+                        <strong>Next Step:</strong> Have Member drop off sample within 1 hour of collection
+                    </div>
                 </div>
             </div>
             
@@ -1051,40 +1066,53 @@
             <div class="page" id="page8">
                 <h1>Symptom Guides - Part 3</h1>
                 
-                <h2>Limping/Lameness</h2>
-                <ul>
-                    <li>Which limb is affected?</li>
-                    <li>Previous issues with this limb?</li>
-                    <li>How long has this been going on?</li>
-                    <li>Is Pet able to put weight on leg?</li>
-                    <li>Known cause?</li>
-                    <li>Better/worse after rest/exercise?</li>
-                </ul>
-                <div class="info-box">
-                    <strong>Next Step:</strong> Minimize activity 24h → Carprofen/Gabapentin 3 days → Call if persists
+                <!-- Quick Symptom Navigation (also on page 8) -->
+                <div class="symptom-nav">
+                    <button class="symptom-nav-btn" data-target="limping">🦵 Limping</button>
+                    <button class="symptom-nav-btn" data-target="scooting">🛷 Scooting</button>
+                    <button class="symptom-nav-btn" data-target="seizures">⚡ Seizures</button>
                 </div>
                 
-                <h2>Scooting</h2>
-                <ul>
-                    <li>How long has Pet been scooting?</li>
-                    <li>Previous anal gland issues?</li>
-                    <li>Swelling or discharge from rectum?</li>
-                    <li>Pet licking rectum area?</li>
-                </ul>
-                <div class="info-box">
-                    <strong>Next Step:</strong> Send to Hannah Help Line for callback
+                <div class="symptom-section" id="limping">
+                    <h2>Limping/Lameness</h2>
+                    <ul>
+                        <li>Which limb is affected?</li>
+                        <li>Previous issues with this limb?</li>
+                        <li>How long has this been going on?</li>
+                        <li>Is Pet able to put weight on leg?</li>
+                        <li>Known cause?</li>
+                        <li>Better/worse after rest/exercise?</li>
+                    </ul>
+                    <div class="info-box">
+                        <strong>Next Step:</strong> Minimize activity 24h → Carprofen/Gabapentin 3 days → Call if persists
+                    </div>
                 </div>
                 
-                <h2>Seizures</h2>
-                <ul>
-                    <li>History of seizures?</li>
-                    <li>Conscious during episode?</li>
-                    <li>How long did episode last?</li>
-                    <li>Additional episodes in last 24h?</li>
-                    <li>How was Pet before/after? (Clingy, agitated, disoriented, lethargic)</li>
-                </ul>
-                <div class="info-box">
-                    <strong>Next Step:</strong> Have Member keep seizure journal + send note to Hannah Help Line
+                <div class="symptom-section" id="scooting">
+                    <h2>Scooting</h2>
+                    <ul>
+                        <li>How long has Pet been scooting?</li>
+                        <li>Previous anal gland issues?</li>
+                        <li>Swelling or discharge from rectum?</li>
+                        <li>Pet licking rectum area?</li>
+                    </ul>
+                    <div class="info-box">
+                        <strong>Next Step:</strong> Send to Hannah Help Line for callback
+                    </div>
+                </div>
+                
+                <div class="symptom-section" id="seizures">
+                    <h2>Seizures</h2>
+                    <ul>
+                        <li>History of seizures?</li>
+                        <li>Conscious during episode?</li>
+                        <li>How long did episode last?</li>
+                        <li>Additional episodes in last 24h?</li>
+                        <li>How was Pet before/after? (Clingy, agitated, disoriented, lethargic)</li>
+                    </ul>
+                    <div class="info-box">
+                        <strong>Next Step:</strong> Have Member keep seizure journal + send note to Hannah Help Line
+                    </div>
                 </div>
                 
                 <h2>Food & Diets</h2>
@@ -1262,7 +1290,6 @@
             const prevBtn = document.getElementById('prev-btn');
             const nextBtn = document.getElementById('next-btn');
             const homeBtn = document.getElementById('home-btn');
-            const tocBtn = document.getElementById('toc-btn');
             const printBtn = document.getElementById('print-btn');
             const currentPageEl = document.getElementById('current-page');
             const totalPagesEl = document.getElementById('total-pages');
@@ -1273,7 +1300,7 @@
             totalPagesEl.textContent = totalPages;
             updatePageIndicator();
             
-            // Home button event listener - ADDED
+            // Home button event listener
             homeBtn.addEventListener('click', function() {
                 goToPage(1);
             });
@@ -1311,6 +1338,7 @@
                 currentPage = Math.max(1, Math.min(totalPages, page));
                 updateFlipbook();
                 updatePageIndicator();
+                setupSymptomNavigation();
             }
             
             function updateFlipbook() {
@@ -1329,10 +1357,22 @@
                     indicator.classList.remove('highlight');
                 }, 2000);
             }
-                        // Symptom search and navigation functionality
+            
+            // Symptom search and navigation functionality
             function setupSymptomNavigation() {
+                // Only set up on symptom pages
+                if (currentPage < 6 || currentPage > 8) return;
+                
                 const searchInput = document.getElementById('symptom-search');
                 const symptomNavBtns = document.querySelectorAll('.symptom-nav-btn');
+                let originalContents = new Map();
+                
+                // Store original content for resetting
+                if (currentPage === 6 || currentPage === 7 || currentPage === 8) {
+                    document.querySelectorAll('.symptom-section').forEach(section => {
+                        originalContents.set(section.id, section.innerHTML);
+                    });
+                }
                 
                 // Search functionality
                 if (searchInput) {
@@ -1344,24 +1384,24 @@
                             // Search through all symptoms
                             symptomSections.forEach(section => {
                                 const text = section.textContent.toLowerCase();
-                                const html = section.innerHTML;
                                 
                                 if (text.includes(searchTerm)) {
                                     section.style.display = 'block';
-                                    // Highlight search term (simple version)
-                                    const regex = new RegExp(searchTerm, 'gi');
-                                    section.innerHTML = html.replace(regex, match => 
-                                        `<span class="highlight">${match}</span>`
-                                    );
+                                    // Highlight search term
+                                    const html = originalContents.get(section.id);
+                                    const regex = new RegExp(`(${searchTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+                                    section.innerHTML = html.replace(regex, '<span class="highlight">$1</span>');
                                 } else {
                                     section.style.display = 'none';
                                 }
                             });
                         } else {
-                            // Show all sections and remove highlights
+                            // Show all sections and restore original content
                             symptomSections.forEach(section => {
                                 section.style.display = 'block';
-                                section.innerHTML = section.innerHTML.replace(/<span class="highlight">|<\/span>/g, '');
+                                if (originalContents.has(section.id)) {
+                                    section.innerHTML = originalContents.get(section.id);
+                                }
                             });
                         }
                     });
@@ -1382,76 +1422,23 @@
                             this.classList.add('active');
                             
                             // Highlight the section briefly
+                            const originalColor = targetSection.style.backgroundColor;
                             targetSection.style.backgroundColor = 'rgba(249, 200, 53, 0.2)';
                             setTimeout(() => {
-                                targetSection.style.backgroundColor = '';
+                                targetSection.style.backgroundColor = originalColor;
                             }, 2000);
                         }
                     });
                 });
                 
                 // Clear search when changing pages
-                const clearSearchOnPageChange = () => {
-                    if (searchInput) {
-                        searchInput.value = '';
-                        const symptomSections = document.querySelectorAll('.symptom-section');
-                        symptomSections.forEach(section => {
-                            section.style.display = 'block';
-                            section.innerHTML = section.innerHTML.replace(/<span class="highlight">|<\/span>/g, '');
-                        });
-                    }
-                };
-                
-                // Clear search when leaving symptom pages
-                document.querySelectorAll('.page').forEach(page => {
-                    if (!page.id.includes('page6') && !page.id.includes('page7') && !page.id.includes('page8')) {
-                        page.addEventListener('click', clearSearchOnPageChange);
-                    }
-                });
-            }
-            
-            // Call this function when on symptom pages
-            function checkAndSetupSymptomNav() {
-                if (currentPage === 6 || currentPage === 7 || currentPage === 8) {
-                    setupSymptomNavigation();
+                if (searchInput) {
+                    searchInput.value = '';
                 }
             }
-            
-            // Update your goToPage function to include symptom setup
-            const originalGoToPage = goToPage;
-            goToPage = function(page) {
-                originalGoToPage(page);
-                setTimeout(checkAndSetupSymptomNav, 100); // Small delay to ensure DOM is ready
-            };
             
             prevBtn.addEventListener('click', () => goToPage(currentPage - 1));
             nextBtn.addEventListener('click', () => goToPage(currentPage + 1));
-            
-            tocBtn.addEventListener('click', function() {
-                const pageNames = [
-                    "Cover",
-                    "Appointment Scheduling", 
-                    "Check-In Protocol",
-                    "Diagnostic Testing",
-                    "Nurse Roles",
-                    "Triage & Symptom Guides - Part 1",
-                    "Symptom Guides - Part 2",
-                    "Symptom Guides - Part 3",
-                    "Medications Reference - Part 1",
-                    "Medications & Conversions",
-                    "Abbreviations & Resources"
-                ];
-                
-                let tocText = "TABLE OF CONTENTS:\n\n";
-                pageNames.forEach((name, index) => {
-                    tocText += `${index + 1}. ${name}\n`;
-                });
-                
-                const pageNum = prompt(tocText + "\nEnter page number to jump to (1-11):");
-                if (pageNum && !isNaN(pageNum) && pageNum >= 1 && pageNum <= 11) {
-                    goToPage(parseInt(pageNum));
-                }
-            });
             
             printBtn.addEventListener('click', function() {
                 const printWindow = window.open('', '_blank');
@@ -1508,6 +1495,7 @@
             });
             
             updateFlipbook();
+            setupSymptomNavigation();
         });
     </script>
 </body>
