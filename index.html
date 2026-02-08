@@ -414,7 +414,90 @@
             70% { box-shadow: 0 0 0 10px rgba(249, 200, 53, 0); }
             100% { box-shadow: 0 0 0 0 rgba(249, 200, 53, 0); }
         }
+        /* Search bar styling */
+        .search-container {
+            margin: 1rem 0 1.5rem 0;
+            position: relative;
+        }
         
+        .search-input {
+            width: 100%;
+            padding: 0.8rem 1rem 0.8rem 2.5rem;
+            border: 2px solid var(--hannah-blue);
+            border-radius: 25px;
+            font-size: 1rem;
+            font-family: 'Arial', sans-serif;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+        
+        .search-input:focus {
+            border-color: var(--hannah-green);
+            box-shadow: 0 0 0 3px rgba(0, 168, 84, 0.2);
+        }
+        
+        .search-icon {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--hannah-blue);
+            font-size: 1.1rem;
+        }
+        
+        /* Symptom quick navigation */
+        .symptom-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0 1.5rem 0;
+            padding: 0.5rem;
+            background: rgba(0, 168, 232, 0.05);
+            border-radius: 8px;
+            border: 1px solid rgba(0, 168, 232, 0.2);
+        }
+        
+        .symptom-nav-btn {
+            background: white;
+            color: var(--hannah-navy);
+            border: 1px solid var(--hannah-blue);
+            padding: 0.4rem 0.8rem;
+            border-radius: 15px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+        
+        .symptom-nav-btn:hover {
+            background: var(--hannah-blue);
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .symptom-nav-btn.active {
+            background: var(--hannah-navy);
+            color: white;
+            border-color: var(--hannah-navy);
+        }
+        
+        /* Highlight search results */
+        .highlight {
+            background-color: var(--hannah-yellow);
+            padding: 0.1rem 0.3rem;
+            border-radius: 3px;
+        }
+        
+        /* Symptom sections with IDs for navigation */
+        .symptom-section {
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        .symptom-section:last-child {
+            border-bottom: none;
+        }
         /* Responsive design */
         @media (max-width: 768px) {
             .flipbook-container {
@@ -798,76 +881,110 @@
             </div>
             
             <!-- Page 6: Triage & Symptom Guides - Part 1 -->
+                       <!-- Page 6: Triage & Symptom Guides - Part 1 -->
             <div class="page" id="page6">
-                <h1>Triage & Symptom Guides - Part 1</h1>
+                <h1>Triage & Symptom Guides</h1>
 
-                <h2>Immediate Attention Needed</h2>
-                <div class="warning-box">
-                    <p><strong>URGENT CARE - Notify medical immediately</strong></p>
+                <!-- Search Bar -->
+                <div class="search-container">
+                    <div class="search-icon">🔍</div>
+                    <input type="text" class="search-input" id="symptom-search" placeholder="Search symptoms (e.g., vomiting, limping, seizures)...">
                 </div>
-                <ul>
-                    <li>Vehicle trauma within last 12-24 hours</li>
-                    <li>Labored/rapid/difficulty breathing</li>
-                    <li>Inability to urinate</li>
-                    <li>Active bleeding</li>
-                    <li>Sudden weakness (falling over/unable to stand)</li>
-                    <li>Inability to use rear legs</li>
-                    <li>Abdominal enlargement</li>
-                    <li>Not eating for over 24 hours (NOTHING AT ALL!)</li>
-                    <li>Pets with chronic illnesses that have relapsed</li>
-                    <li>Dogs under 4 months with diarrhea, vomiting, no appetite</li>
-                    <li>Male cats straining/unable to urinate</li>
-                </ul>
-    
-                <h2>Vomiting/Diarrhea</h2>
-                <h3>Questions to Ask:</h3>
-                <ul>
-                    <li>When was Pet last 100% normal?</li>
-                    <li>When did symptoms start?</li>
-                    <li>Frequency of vomiting/diarrhea?</li>
-                    <li>Last time Pet ate/drank?</li>
-                    <li>Description of vomit/stool?</li>
-                    <li>Possible ingestion of foreign material?</li>
-                    <li>Other Pets in house with symptoms?</li>
-                </ul>
-                <div class="info-box">
-                    <strong>Next Step:</strong> Fast 24h → Bland diet (chicken + rice) → Call if persists
+
+                <!-- Quick Symptom Navigation -->
+                <div class="symptom-nav" id="symptom-nav">
+                    <button class="symptom-nav-btn" data-target="immediate">⚠️ Immediate Care</button>
+                    <button class="symptom-nav-btn" data-target="vomiting">🤮 Vomiting/Diarrhea</button>
+                    <button class="symptom-nav-btn" data-target="toxicity">☠️ Toxicity</button>
+                    <button class="symptom-nav-btn" data-target="eye">👁️ Eye/Nose Discharge</button>
+                    <button class="symptom-nav-btn" data-target="adr">😴 ADR/Lethargy</button>
+                    <button class="symptom-nav-btn" data-target="lump">🔘 Lump/Mass</button>
+                    <button class="symptom-nav-btn" data-target="skin">🤚 Skin/Itching</button>
+                    <button class="symptom-nav-btn" data-target="ears">👂 Ear Issues</button>
+                    <button class="symptom-nav-btn" data-target="blood">💉 Blood in Urine/Stool</button>
+                    <button class="symptom-nav-btn" data-target="limping">🦵 Limping</button>
+                    <button class="symptom-nav-btn" data-target="scooting">🛷 Scooting</button>
+                    <button class="symptom-nav-btn" data-target="seizures">⚡ Seizures</button>
                 </div>
-                
-                <h2>Toxicity Ingestion</h2>
-                <ul>
-                    <li>What did Pet eat? (Have container?)</li>
-                    <li>How much? When?</li>
-                    <li>Eating/drinking normally?</li>
-                    <li>Regular BMs and urination?</li>
-                    <li>Other symptoms?</li>
-                </ul>
-                <div class="warning-box">
-                    <strong>Next Step:</strong> Send to Hannah Help Line for immediate callback
+
+                <!-- Symptom Sections with IDs -->
+                <div class="symptom-section" id="immediate">
+                    <h2>Immediate Attention Needed</h2>
+                    <div class="warning-box">
+                        <p><strong>URGENT CARE - Notify medical immediately</strong></p>
+                    </div>
+                    <ul>
+                        <li>Vehicle trauma within last 12-24 hours</li>
+                        <li>Labored/rapid/difficulty breathing</li>
+                        <li>Inability to urinate</li>
+                        <li>Active bleeding</li>
+                        <li>Sudden weakness (falling over/unable to stand)</li>
+                        <li>Inability to use rear legs</li>
+                        <li>Abdominal enlargement</li>
+                        <li>Not eating for over 24 hours (NOTHING AT ALL!)</li>
+                        <li>Pets with chronic illnesses that have relapsed</li>
+                        <li>Dogs under 4 months with diarrhea, vomiting, no appetite</li>
+                        <li>Male cats straining/unable to urinate</li>
+                    </ul>
                 </div>
-                
-                <h2>Eye/Nose Discharge</h2>
-                <ul>
-                    <li>When did it start?</li>
-                    <li>Color of discharge?</li>
-                    <li>Frequency? Worse at certain times?</li>
-                    <li>New issue or history of allergies?</li>
-                    <li>Recent contact with other dogs?</li>
-                </ul>
-                <div class="info-box">
-                    <strong>Next Step:</strong> Ask Member to send photo to medical email + note for callback
+
+                <div class="symptom-section" id="vomiting">
+                    <h2>Vomiting/Diarrhea</h2>
+                    <h3>Questions to Ask:</h3>
+                    <ul>
+                        <li>When was Pet last 100% normal?</li>
+                        <li>When did symptoms start?</li>
+                        <li>Frequency of vomiting/diarrhea?</li>
+                        <li>Last time Pet ate/drank?</li>
+                        <li>Description of vomit/stool?</li>
+                        <li>Possible ingestion of foreign material?</li>
+                        <li>Other Pets in house with symptoms?</li>
+                    </ul>
+                    <div class="info-box">
+                        <strong>Next Step:</strong> Fast 24h → Bland diet (chicken + rice) → Call if persists
+                    </div>
                 </div>
-                
-                <h2>ADR (Ain't Doing Right)</h2>
-                <ul>
-                    <li>Last time Pet was 100% normal?</li>
-                    <li>Possible ingestion of something?</li>
-                    <li>Vomiting/diarrhea noted?</li>
-                    <li>Other Pets in house unwell?</li>
-                    <li>Eating/drinking normally?</li>
-                </ul>
-                <div class="info-box">
-                    <strong>Next Step:</strong> Send to Hannah Help Line for callback
+
+                <div class="symptom-section" id="toxicity">
+                    <h2>Toxicity Ingestion</h2>
+                    <ul>
+                        <li>What did Pet eat? (Have container?)</li>
+                        <li>How much? When?</li>
+                        <li>Eating/drinking normally?</li>
+                        <li>Regular BMs and urination?</li>
+                        <li>Other symptoms?</li>
+                    </ul>
+                    <div class="warning-box">
+                        <strong>Next Step:</strong> Send to medical for immediate callback
+                    </div>
+                </div>
+
+                <div class="symptom-section" id="eye">
+                    <h2>Eye/Nose Discharge</h2>
+                    <ul>
+                        <li>When did it start?</li>
+                        <li>Color of discharge?</li>
+                        <li>Frequency? Worse at certain times?</li>
+                        <li>New issue or history of allergies?</li>
+                        <li>Recent contact with other dogs?</li>
+                    </ul>
+                    <div class="info-box">
+                        <strong>Next Step:</strong> Ask M to send photo to medical email + note for callback
+                    </div>
+                </div>
+
+                <div class="symptom-section" id="adr">
+                    <h2>ADR (Ain't Doing Right)</h2>
+                    <ul>
+                        <li>Last time Pet was 100% normal?</li>
+                        <li>Possible ingestion of something?</li>
+                        <li>Vomiting/diarrhea noted?</li>
+                        <li>Other Pets in house unwell?</li>
+                        <li>Eating/drinking normally?</li>
+                    </ul>
+                    <div class="info-box">
+                        <strong>Next Step:</strong> Send to Hannah Help Line for callback
+                    </div>
                 </div>
             </div>
             
@@ -875,16 +992,21 @@
             <div class="page" id="page7">
                 <h1>Symptom Guides - Part 2</h1>
                 
-                <h2>Lump/Mass</h2>
-                <ul>
-                    <li>Location of lump?</li>
-                    <li>When first noticed?</li>
-                    <li>Changes (color, shape, size, texture)?</li>
-                    <li>Discharge from lump?</li>
-                </ul>
-                <div class="info-box">
-                    <strong>Next Step:</strong> Ask Member to send photo to medical email + note for a callback.  Provide Member with Pet ID to include in subject line of email.
+                <!-- Continue with symptom sections -->
+                <div class="symptom-section" id="lump">
+                    <h2>Lump/Mass</h2>
+                    <ul>
+                        <li>Location of lump?</li>
+                        <li>When first noticed?</li>
+                        <li>Changes (color, shape, size, texture)?</li>
+                        <li>Discharge from lump?</li>
+                    </ul>
+                    <div class="info-box">
+                        <strong>Next Step:</strong> Ask Member to send photo to medical email + note for a callback. Provide Member with Pet ID to include in subject line of email.
+                    </div>
                 </div>
+                
+                <!-- ... continue with other symptoms on Page 7 ... -->
                 
                 <h2>Skin/Itching</h2>
                 <ul>
@@ -1207,6 +1329,100 @@
                     indicator.classList.remove('highlight');
                 }, 2000);
             }
+                        // Symptom search and navigation functionality
+            function setupSymptomNavigation() {
+                const searchInput = document.getElementById('symptom-search');
+                const symptomNavBtns = document.querySelectorAll('.symptom-nav-btn');
+                
+                // Search functionality
+                if (searchInput) {
+                    searchInput.addEventListener('input', function() {
+                        const searchTerm = this.value.toLowerCase().trim();
+                        const symptomSections = document.querySelectorAll('.symptom-section');
+                        
+                        if (searchTerm.length > 0) {
+                            // Search through all symptoms
+                            symptomSections.forEach(section => {
+                                const text = section.textContent.toLowerCase();
+                                const html = section.innerHTML;
+                                
+                                if (text.includes(searchTerm)) {
+                                    section.style.display = 'block';
+                                    // Highlight search term (simple version)
+                                    const regex = new RegExp(searchTerm, 'gi');
+                                    section.innerHTML = html.replace(regex, match => 
+                                        `<span class="highlight">${match}</span>`
+                                    );
+                                } else {
+                                    section.style.display = 'none';
+                                }
+                            });
+                        } else {
+                            // Show all sections and remove highlights
+                            symptomSections.forEach(section => {
+                                section.style.display = 'block';
+                                section.innerHTML = section.innerHTML.replace(/<span class="highlight">|<\/span>/g, '');
+                            });
+                        }
+                    });
+                }
+                
+                // Quick navigation button functionality
+                symptomNavBtns.forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const targetId = this.getAttribute('data-target');
+                        const targetSection = document.getElementById(targetId);
+                        
+                        if (targetSection) {
+                            // Scroll to the section
+                            targetSection.scrollIntoView({ behavior: 'smooth' });
+                            
+                            // Highlight the active button
+                            symptomNavBtns.forEach(b => b.classList.remove('active'));
+                            this.classList.add('active');
+                            
+                            // Highlight the section briefly
+                            targetSection.style.backgroundColor = 'rgba(249, 200, 53, 0.2)';
+                            setTimeout(() => {
+                                targetSection.style.backgroundColor = '';
+                            }, 2000);
+                        }
+                    });
+                });
+                
+                // Clear search when changing pages
+                const clearSearchOnPageChange = () => {
+                    if (searchInput) {
+                        searchInput.value = '';
+                        const symptomSections = document.querySelectorAll('.symptom-section');
+                        symptomSections.forEach(section => {
+                            section.style.display = 'block';
+                            section.innerHTML = section.innerHTML.replace(/<span class="highlight">|<\/span>/g, '');
+                        });
+                    }
+                };
+                
+                // Clear search when leaving symptom pages
+                document.querySelectorAll('.page').forEach(page => {
+                    if (!page.id.includes('page6') && !page.id.includes('page7') && !page.id.includes('page8')) {
+                        page.addEventListener('click', clearSearchOnPageChange);
+                    }
+                });
+            }
+            
+            // Call this function when on symptom pages
+            function checkAndSetupSymptomNav() {
+                if (currentPage === 6 || currentPage === 7 || currentPage === 8) {
+                    setupSymptomNavigation();
+                }
+            }
+            
+            // Update your goToPage function to include symptom setup
+            const originalGoToPage = goToPage;
+            goToPage = function(page) {
+                originalGoToPage(page);
+                setTimeout(checkAndSetupSymptomNav, 100); // Small delay to ensure DOM is ready
+            };
             
             prevBtn.addEventListener('click', () => goToPage(currentPage - 1));
             nextBtn.addEventListener('click', () => goToPage(currentPage + 1));
