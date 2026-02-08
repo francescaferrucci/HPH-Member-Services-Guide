@@ -1201,6 +1201,12 @@
             
             function updatePageIndicator() {
                 currentPageEl.textContent = currentPage;
+                // Highlight the page indicator when navigating
+                const indicator = document.querySelector('.page-indicator');
+                indicator.classList.add('highlight');
+                setTimeout(() => {
+                    indicator.classList.remove('highlight');
+                }, 2000);
             }
             
             prevBtn.addEventListener('click', () => goToPage(currentPage - 1));
