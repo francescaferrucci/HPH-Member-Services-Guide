@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hannah Pet Hospital - Reception Reference Manual</title>
+    <title>Hannah Pet Hospital - Member Services Reference Manual</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Teen&family=Arial:wght@400;700&family=Georgia&display=swap" rel="stylesheet">
     <style>
@@ -75,12 +75,12 @@
         /* Flipbook container */
         .flipbook-container {
             position: absolute;
-            top: 70px; /* Reduced from 100px */
+            top: 70px;
             bottom: 70px;
             left: 50%;
             transform: translateX(-50%);
             width: 90%;
-            max-width: 900px; /* Reduced from 1000px */
+            max-width: 900px;
             perspective: 1500px;
             z-index: 1;
         }
@@ -99,15 +99,96 @@
             height: 100%;
             background: white;
             box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
-            padding: 2rem; /* Reduced from 3rem */
+            padding: 1.5rem;
             overflow-y: auto;
             backface-visibility: hidden;
             display: none;
             border-radius: 8px;
+            font-size: 0.95rem;
         }
         
         .page.active {
             display: block;
+        }
+        
+        .page h1 {
+            color: var(--hannah-green);
+            border-bottom: 3px solid var(--hannah-yellow);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            font-family: 'Teen', sans-serif;
+            font-size: 1.8rem;
+        }
+        
+        .page h2 {
+            color: var(--hannah-navy);
+            margin: 1rem 0 0.5rem 0;
+            font-family: 'Teen', sans-serif;
+            font-size: 1.4rem;
+        }
+        
+        .page h3 {
+            color: var(--hannah-blue);
+            margin: 0.8rem 0 0.4rem 0;
+            font-size: 1.2rem;
+        }
+        
+        .page ul, .page ol {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .page li {
+            margin-bottom: 0.3rem;
+            line-height: 1.4;
+        }
+        
+        .highlight-box {
+            background: rgba(0, 168, 84, 0.1);
+            border-left: 4px solid var(--hannah-green);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0 6px 6px 0;
+        }
+        
+        .warning-box {
+            background: rgba(227, 92, 37, 0.1);
+            border-left: 4px solid var(--hannah-orange);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0 6px 6px 0;
+        }
+        
+        .info-box {
+            background: rgba(0, 168, 232, 0.1);
+            border-left: 4px solid var(--hannah-blue);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0 6px 6px 0;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+        }
+        
+        th {
+            background-color: var(--hannah-navy);
+            color: white;
+            padding: 0.8rem;
+            text-align: left;
+            font-family: 'Teen', sans-serif;
+        }
+        
+        td {
+            padding: 0.8rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        tr:nth-child(even) {
+            background-color: rgba(0, 60, 113, 0.05);
         }
         
         /* COVER PAGE SPECIFIC STYLES */
@@ -117,7 +198,7 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 1.5rem !important; /* Less padding */
+            padding: 1rem !important;
         }
         
         .cover-content {
@@ -126,12 +207,12 @@
         }
         
         .cover-logo {
-            margin-bottom: 1.5rem; /* Reduced from 2rem */
+            margin-bottom: 1rem;
         }
         
         .logo-hannah {
             font-family: 'Teen', sans-serif;
-            font-size: 2.8rem; /* Reduced from 3.5rem */
+            font-size: 2.5rem;
             font-weight: bold;
             color: var(--hannah-green);
             line-height: 1;
@@ -140,7 +221,7 @@
         
         .logo-pet {
             font-family: 'Teen', sans-serif;
-            font-size: 2.2rem; /* Reduced from 2.5rem */
+            font-size: 2rem;
             font-weight: bold;
             color: var(--hannah-navy);
             line-height: 1;
@@ -149,30 +230,28 @@
         
         .logo-hospital {
             font-family: 'Teen', sans-serif;
-            font-size: 1.8rem; /* Reduced from 2rem */
+            font-size: 1.6rem;
             color: var(--hannah-blue);
             line-height: 1;
-            margin-bottom: 1.5rem; /* Reduced from 2rem */
+            margin-bottom: 1rem;
         }
         
         .cover-title {
             font-family: 'Teen', sans-serif;
-            font-size: 2.5rem; /* Reduced from 3.5rem */
+            font-size: 2.2rem;
             color: var(--hannah-green);
-            margin-bottom: 0.8rem; /* Reduced from 1rem */
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+            margin-bottom: 0.5rem;
         }
         
         .cover-subtitle {
-            font-size: 1.3rem; /* Reduced from 1.8rem */
+            font-size: 1.2rem;
             color: var(--hannah-navy);
-            margin-bottom: 1.5rem; /* Reduced from 3rem */
-            font-weight: normal;
+            margin-bottom: 1rem;
             line-height: 1.4;
         }
         
         .cover-brand {
-            font-size: 1.4rem; /* Reduced from 2rem */
+            font-size: 1.3rem;
             color: var(--hannah-blue);
             margin-bottom: 0.3rem;
             font-weight: bold;
@@ -180,29 +259,29 @@
         
         .cover-confidential {
             color: var(--hannah-orange);
-            font-size: 1rem; /* Reduced from 1.2rem */
-            margin-bottom: 2rem; /* Reduced from 2rem */
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
             font-style: italic;
         }
         
         .cover-instruction {
             background: rgba(255, 255, 255, 0.9);
-            padding: 0.8rem 1.5rem; /* Reduced padding */
+            padding: 0.6rem 1rem;
             border-radius: 8px;
             border: 2px dashed var(--hannah-yellow);
-            font-size: 0.95rem; /* Smaller font */
-            line-height: 1.4;
-            max-width: 400px;
+            font-size: 0.9rem;
+            line-height: 1.3;
+            max-width: 350px;
             margin: 0 auto;
         }
         
         .instruction-main {
-            margin-bottom: 0.3rem;
+            margin-bottom: 0.2rem;
             color: var(--hannah-navy);
         }
         
         .instruction-detail {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             color: var(--hannah-blue);
         }
         
@@ -260,6 +339,44 @@
             border-radius: 20px;
         }
         
+        /* Content tabs */
+        .tabs {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin: 1rem 0;
+        }
+        
+        .tab {
+            background: var(--hannah-light);
+            color: var(--hannah-navy);
+            border: 2px solid var(--hannah-blue);
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+        }
+        
+        .tab:hover {
+            background: var(--hannah-blue);
+            color: white;
+        }
+        
+        .tab.active {
+            background: var(--hannah-navy);
+            color: white;
+            border-color: var(--hannah-navy);
+        }
+        
+        .section {
+            display: none;
+        }
+        
+        .section.active {
+            display: block;
+        }
+        
         /* Responsive design */
         @media (max-width: 768px) {
             .flipbook-container {
@@ -282,31 +399,36 @@
             }
             
             .page {
-                padding: 1.2rem;
+                padding: 1rem;
+                font-size: 0.9rem;
+            }
+            
+            .page h1 {
+                font-size: 1.5rem;
+            }
+            
+            .page h2 {
+                font-size: 1.2rem;
             }
             
             .logo-hannah {
-                font-size: 2.2rem;
-            }
-            
-            .logo-pet {
-                font-size: 1.8rem;
-            }
-            
-            .logo-hospital {
-                font-size: 1.4rem;
-            }
-            
-            .cover-title {
                 font-size: 2rem;
             }
             
-            .cover-subtitle {
-                font-size: 1.1rem;
+            .logo-pet {
+                font-size: 1.6rem;
             }
             
-            .cover-brand {
-                font-size: 1.2rem;
+            .logo-hospital {
+                font-size: 1.3rem;
+            }
+            
+            .cover-title {
+                font-size: 1.8rem;
+            }
+            
+            .cover-subtitle {
+                font-size: 1rem;
             }
             
             .controls {
@@ -319,37 +441,6 @@
                 font-size: 0.85rem;
             }
         }
-        
-        @media (max-height: 700px) {
-            .flipbook-container {
-                top: 60px;
-                bottom: 60px;
-            }
-            
-            .cover-title {
-                font-size: 2.2rem;
-                margin-bottom: 0.5rem;
-            }
-            
-            .cover-subtitle {
-                font-size: 1.1rem;
-                margin-bottom: 1rem;
-            }
-            
-            .cover-brand {
-                font-size: 1.2rem;
-                margin-bottom: 0.2rem;
-            }
-            
-            .cover-confidential {
-                font-size: 0.9rem;
-                margin-bottom: 1.5rem;
-            }
-            
-            .cover-logo {
-                margin-bottom: 1rem;
-            }
-        }
     </style>
 </head>
 <body>
@@ -358,7 +449,7 @@
         <div class="logo-container">
             <div class="logo-text">
                 <div class="logo-main">HANNAH PET HOSPITAL</div>
-                <div class="logo-subtitle">Reception Reference Manual</div>
+                <div class="logo-subtitle">Member Services Reference Manual</div>
             </div>
         </div>
         <div class="page-indicator">Page <span id="current-page">1</span> of <span id="total-pages">11</span></div>
@@ -370,26 +461,21 @@
             <!-- Page 1: Cover -->
             <div class="page cover-page active" id="page1">
                 <div class="cover-content">
-                    <!-- Logo -->
                     <div class="cover-logo">
                         <div class="logo-hannah">HANNAH</div>
                         <div class="logo-pet">PET</div>
                         <div class="logo-hospital">HOSPITAL</div>
                     </div>
                     
-                    <!-- Title -->
-                    <h1 class="cover-title">Reception Reference Manual</h1>
+                    <h1 class="cover-title">Member Services Reference Manual</h1>
                     
-                    <!-- Subtitle -->
                     <div class="cover-subtitle">
-                        A quick reference guide to exceptional member service
+                        A Quick Reference Guide to Exceptional Member Service
                     </div>
                     
-                    <!-- Brand and confidentiality -->
                     <div class="cover-brand">Hannah Pet Hospital</div>
                     <div class="cover-confidential">Proprietary & Confidential</div>
                     
-                    <!-- Navigation instructions -->
                     <div class="cover-instruction">
                         <div class="instruction-main">Use arrows or buttons below to navigate</div>
                         <div class="instruction-detail">Press ← → keys or click Previous/Next</div>
@@ -397,75 +483,515 @@
                 </div>
             </div>
             
-            <!-- Page 2: How to Schedule Appointments -->
+            <!-- Page 2: Appointment Scheduling -->
             <div class="page" id="page2">
-                <h1 style="color: var(--hannah-green); border-bottom: 3px solid var(--hannah-yellow); padding-bottom: 0.5rem; margin-bottom: 1.5rem;">
-                    How to Schedule Appointments
-                </h1>
+                <h1>Appointment Scheduling</h1>
                 
-                <div style="background: rgba(0, 168, 84, 0.1); padding: 1rem; border-radius: 6px; margin-bottom: 1.5rem; border-left: 4px solid var(--hannah-green);">
-                    <strong style="color: var(--hannah-navy);">Nurse Appointments (20 minutes)</strong>
-                    <ul style="margin-top: 0.5rem;">
+                <div class="tabs" id="appointment-tabs">
+                    <div class="tab active" data-target="nurse">Nurse Appointments</div>
+                    <div class="tab" data-target="medical">Medical Appointments</div>
+                    <div class="tab" data-target="drop-off">Drop-Offs</div>
+                    <div class="tab" data-target="urgent">Urgent Care</div>
+                    <div class="tab" data-target="surgery">Surgery/Dentals</div>
+                    <div class="tab" data-target="dvm">DVM Appointments</div>
+                </div>
+                
+                <div class="section active" id="nurse">
+                    <h2>Nurse Aid Appointments (20 minutes)</h2>
+                    <ul>
                         <li>TNT (Titers/Nails/Technician)</li>
                         <li>AG (Anal Glands)</li>
                         <li>VX (Vaccines)</li>
-                        <li>Dental evaluation</li>
-                        <li>Suture/staples removal</li>
-                        <li>Semi-annual PE, NO CONCERNS</li>
+                        <li>Dental Evaluations</li>
+                        <li>Suture Removal</li>
                     </ul>
                 </div>
                 
-                <div style="background: rgba(0, 168, 232, 0.1); padding: 1rem; border-radius: 6px; margin-bottom: 1.5rem; border-left: 4px solid var(--hannah-blue);">
-                    <strong style="color: var(--hannah-navy);">Medical Appointments (30 minutes)</strong>
-                    <ul style="margin-top: 0.5rem;">
-                        <li>Semi-annual PE, with MINIMAL concerns</li>
-                        <li>Annual PE</li>
-                        <li>Skin issues</li>
-                        <li>Ears/Eyes rechecks</li>
-                        <li>Blood work recheck</li>
-                        <li>Acupuncture on Dr. Horner's weeks after 2 PM</li>
+                <div class="section" id="medical">
+                    <h2>Medical Appointments (30 minutes)</h2>
+                    <ul>
+                        <li>Semi-annual Physical Exam, with MINIMAL concerns</li>
+                        <li>Annual Wellness</li>
+                        <li>Skin Issues</li>
+                        <li>Ears/Eyes Rechecks</li>
+                        <li>Blood Work Recheck</li>
+                        <li>Accupuncture on Dr. Brown or Dr. Horner Days (after 2:00 pm)</li>
                     </ul>
                 </div>
                 
-                <div style="background: rgba(227, 92, 37, 0.1); padding: 1rem; border-radius: 6px; border-left: 4px solid var(--hannah-orange);">
-                    <strong style="color: var(--hannah-navy);">Drop-Off (1-8 hours)</strong>
-                    <ul style="margin-top: 0.5rem;">
-                        <li>Check mass, Radiographs, Blood work</li>
-                        <li>Urinary issues, GI symptoms</li>
-                        <li>Lacerations, Torn nail</li>
-                        <li>Acupuncture, Health Certificates</li>
-                        <li>Ear hematomas, Ultrasound</li>
-                        <li>LDSST, ACTH, Fasted Bile Acids</li>
-                        <li>Sedated exam, Multiple requests</li>
+                <div class="section" id="drop-off">
+                    <h2>Drop-Offs (1-8 hours)</h2>
+                    <ul>
+                        <li>Member Request</li>
+                        <li>ACTH (AM D/O: 1 hour test)</li>
+                        <li>Fasted Bile Acids (AM D/O: 2 hour test)</li>
+                        <li>LDSST (AM D/O: 8 hour test)</li>
+                        <li>Sedated Exam</li>
+                        <li>Multiple Conditions</li>
+                        <li>Health Certificate</li>
                     </ul>
-                    <div style="background: rgba(227, 92, 37, 0.2); padding: 0.5rem; margin-top: 0.5rem; border-radius: 4px; font-size: 0.9rem;">
-                        <strong>⚠️ LATEST DROP OFF FOR LDDST IS 9:45 AM!</strong>
+                    <div class="warning-box">
+                        <strong>LATEST DROP OFF FOR LDDST IS 9:45 AM!</strong>
+                    </div>
+                </div>
+                
+                <div class="section" id="surgery">
+                    <h2>Surgery</h2>
+                    <ul>
+                        <li>Spay/Neuter</li>
+                        <li>Mass Removals</li>
+                        <li>Entropion</li>
+                        <li>Enucleation</li>
+                        <li>Cherry Eye</li>
+                    </ul>
+                    <div class="info-box">
+                        <strong>Note:</strong> Other SX types need Nurse/Manager approval.
+                    </div>
+                    
+                    <h2>Dentals</h2>
+                    <ul>
+                        <li><strong>Dental Cleaning/No Extractions</strong> = Routine Teeth Cleaning</li>
+                        <li><strong>Dental with Extractions</strong> = Anticipate Extractions</li>
+                        <li><strong>Dental with Extractions/Mass Removal</strong> = Anticipate Both</li>
+                    </ul>
+                    <div class="info-box">
+                        <strong>Note:</strong> Service Coordinators do not schedule dentals unless instructed.
                     </div>
                 </div>
             </div>
             
-            <!-- Continue with other pages... -->
-            <!-- (Additional pages would follow the same compact format) -->
+            <!-- Page 3: Check-In Protocol -->
+            <div class="page" id="page3">
+                <h1>Check-In Protocol</h1>
+                
+                <h2>Basic Formula</h2>
+                <div class="highlight-box">
+                    <strong>Appt Type, Time: Reason for Visit - Presenting Complaint</strong><br>
+                    Example: Medical 14:00: Recheck - Liver Values
+                </div>
+                
+                <h3>Key Rules:</h3>
+                <ul>
+                    <li>Reason for visit is what category was selected while booking</li>
+                    <li>Time is always entered in military format</li>
+                    <li>Pet's labeled time should be appointment time, NOT check-in time</li>
+                </ul>
+                
+                <h2>Check-In Types</h2>
+                
+                <h3>Drop-Offs (AM/PM)</h3>
+                <div class="info-box">
+                    <strong>Format:</strong> D/O AM/PM: Reason for Visit - Presenting Complaint<br>
+                    <strong>Example:</strong> D/O AM: Wellness - Health Certificate<br>
+                    <strong>Action:</strong> Admit into 'Ready for Exam'
+                </div>
+                
+                <h3>Walk-Ins</h3>
+                <div class="info-box">
+                    <strong>Format:</strong> W/I [time]: Reason for Visit - Presenting complaint<br>
+                    <strong>Example:</strong> W/I 14:05: Injury - Torn Toenail<br>
+                    <strong>Action:</strong> Admit into 'Ready for Exam', highlight (Pet Parent Waiting)
+                </div>
+                
+                <h3>Medical Appointments</h3>
+                <div class="info-box">
+                    <strong>Format:</strong> Medical [time]: Reason for Visit - Presenting Complaint<br>
+                    <strong>Example:</strong> Medical 09:00: Wellness - Annual PE/Vx Update<br>
+                    <strong>Action:</strong> Leave in Outpatient, Page TC or Send Slack to notify
+                </div>
+                
+                <div class="warning-box">
+                    <strong>Late Arrivals:</strong> If 10+ minutes late, ask Nurse if can still be seen. If not, Nurse will advise drop-off or walk-in.
+                </div>
+                
+                <h3>Surgery/Dentals</h3>
+                <div class="info-box">
+                    <strong>Format:</strong> SX/Dental (include details)<br>
+                    <strong>Example:</strong> SX - K9 Spay<br>
+                    <strong>Action:</strong> Admit into Ready for Procedure<br>
+                    <strong>Note:</strong> If after 7:30 AM, check with Nurse
+                </div>
+            </div>
             
-            <!-- Page 11: Back Cover -->
+            <!-- Page 4: Diagnostic Testing & Urgent Care -->
+            <div class="page" id="page4">
+                <h1>Diagnostic Testing & Urgent Care</h1>
+                
+                <h2>Diagnostic Testing "ABD"</h2>
+                
+                <h3>A - ACTH Stimulation Test</h3>
+                <ul>
+                    <li>Fasting not required</li>
+                    <li>Pre draw + ONE hour post draw</li>
+                    <li>Results typically same day</li>
+                </ul>
+                
+                <h3>B - Bile Acids</h3>
+                <ul>
+                    <li><strong>MUST fast 12 hours prior</strong></li>
+                    <li>Pre draw + TWO hour post draw</li>
+                    <li>Samples sent to reference lab</li>
+                    <li>We call when results return</li>
+                </ul>
+                
+                <h3>D - Low-Dose Dexamethasone Suppression Test</h3>
+                <ul>
+                    <li>Fasting not required</li>
+                    <li>Pre draw + FOUR hour + EIGHT hour post</li>
+                    <li>Results typically same day</li>
+                </ul>
+                <div class="warning-box">
+                    <strong>LATEST DROP-OFF FOR LDDST IS 10 AM!</strong> (Earlier is better)
+                </div>
+                
+                <h2>Urgent Care Protocol</h2>
+                <div class="info-box">
+                    <strong>Check in as:</strong> U/C, time: Reason for Visit - Presenting Complaint<br>
+                    <strong>Action:</strong> Admit into Ready for Exam, Nurse triage before kenneling<br>
+                    <strong>After 5pm (HE2 only):</strong> Move into HE2 ER report, bring to ER Nurse
+                </div>
+                
+                <h2>QOL & Euthanasia</h2>
+                <ul>
+                    <li>Check in as QOL with appointment time</li>
+                    <li>Place in CLEANED exam room</li>
+                    <li>Notify DVM, Medical Appointment Nurse, and/or TC</li>
+                    <li><strong>Make sure music is off!</strong></li>
+                </ul>
+            </div>
+            
+            <!-- Page 5: Nurse Roles & Triage -->
+            <div class="page" id="page5">
+                <h1>Nurse Roles & Triage</h1>
+                
+                <h2>Nurse Responsibilities</h2>
+                <table>
+                    <thead>
+                        <tr><th>Role</th><th>Responsibilities</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>TC (Traffic Control)</td><td>Controls Hospital Flow</td></tr>
+                        <tr><td>Nurse Appointments</td><td>Nurse Aide: 20-min appointments, lab samples</td></tr>
+                        <tr><td>Medical Appointments</td><td>Nurse: 30-min appointments until 2:30-3pm</td></tr>
+                        <tr><td>Drop-Offs</td><td>Nurse + Aide</td></tr>
+                        <tr><td>Urgent Care</td><td>Nurse + Aide, For urgent illness/injury that needs to be seen today or tomorrow</td></tr>
+                        <tr><td>Surgery</td><td>Nurse + Aide; Helps with W/I's after</td></tr>
+                        <tr><td>Dentals</td><td>Nurse + Surgery Aide; helps with W/I's after</td></tr>
+                        <tr><td>Walk-Ins</td><td>As Assignged by TC; Prepare Member for potentially long wait time</td></tr>
+                        <tr><td>Hannah Helpline</td><td>Medical Calls, Rx/Lab reports, Emails, Slack</td></tr>
+                        <tr><td>ER</td><td>Nurse + Aide: Hospitalized Patients</td></tr>
+                    </tbody>
+                </table>
+                
+                <h2>Immediate Attention Needed</h2>
+                <div class="warning-box">
+                    <p><strong>URGENT CARE - Notify medical immediately</strong></p>
+                </div>
+                <ul>
+                    <li>Vehicle trauma within last 12-24 hours</li>
+                    <li>Labored/rapid/difficulty breathing</li>
+                    <li>Inability to urinate</li>
+                    <li>Active bleeding</li>
+                    <li>Sudden weakness (falling over/unable to stand)</li>
+                    <li>Inability to use rear legs</li>
+                    <li>Abdominal enlargement</li>
+                    <li>Not eating for over 24 hours (NOTHING AT ALL!)</li>
+                    <li>Pets with chronic illnesses that have relapsed</li>
+                    <li>Dogs under 4 months with diarrhea, vomiting, no appetite</li>
+                    <li>Male cats straining/unable to urinate</li>
+                </ul>
+            </div>
+            
+            <!-- Page 6: Symptom Guides - Part 1 -->
+            <div class="page" id="page6">
+                <h1>Symptom Guides - Part 1</h1>
+                
+                <h2>Vomiting/Diarrhea</h2>
+                <h3>Questions to Ask:</h3>
+                <ul>
+                    <li>When was Pet last 100% normal?</li>
+                    <li>When did symptoms start?</li>
+                    <li>Frequency of vomiting/diarrhea?</li>
+                    <li>Last time Pet ate/drank?</li>
+                    <li>Description of vomit/stool?</li>
+                    <li>Possible ingestion of foreign material?</li>
+                    <li>Other Pets in house with symptoms?</li>
+                </ul>
+                <div class="info-box">
+                    <strong>Next Step:</strong> Fast 24h → Bland diet (chicken + rice) → Call if persists
+                </div>
+                
+                <h2>Toxicity Ingestion</h2>
+                <ul>
+                    <li>What did Pet eat? (Have container?)</li>
+                    <li>How much? When?</li>
+                    <li>Eating/drinking normally?</li>
+                    <li>Regular BMs and urination?</li>
+                    <li>Other symptoms?</li>
+                </ul>
+                <div class="warning-box">
+                    <strong>Next Step:</strong> Send to medical for immediate callback
+                </div>
+                
+                <h2>Eye/Nose Discharge</h2>
+                <ul>
+                    <li>When did it start?</li>
+                    <li>Color of discharge?</li>
+                    <li>Frequency? Worse at certain times?</li>
+                    <li>New issue or history of allergies?</li>
+                    <li>Recent contact with other dogs?</li>
+                </ul>
+                <div class="info-box">
+                    <strong>Next Step:</strong> Ask M to send photo to medical email + note for callback
+                </div>
+                
+                <h2>ADR (Lethargic)</h2>
+                <ul>
+                    <li>Last time pet was 100% normal?</li>
+                    <li>Possible ingestion of something?</li>
+                    <li>Vomiting/diarrhea noted?</li>
+                    <li>Other Pets in house unwell?</li>
+                    <li>Eating/drinking normally?</li>
+                </ul>
+                <div class="info-box">
+                    <strong>Next Step:</strong> Send to medical for callback
+                </div>
+            </div>
+            
+            <!-- Page 7: Symptom Guides - Part 2 -->
+            <div class="page" id="page7">
+                <h1>Symptom Guides - Part 2</h1>
+                
+                <h2>Lump/Mass</h2>
+                <ul>
+                    <li>Location of lump?</li>
+                    <li>When first noticed?</li>
+                    <li>Changes (color, shape, size, texture)?</li>
+                    <li>Discharge from lump?</li>
+                </ul>
+                <div class="info-box">
+                    <strong>Next Step:</strong> Ask M to send photo to medical email + note for callback
+                </div>
+                
+                <h2>Skin/Itching</h2>
+                <ul>
+                    <li>Previous skin issues?</li>
+                    <li>When did it start?</li>
+                    <li>Last bath shampoo used?</li>
+                    <li>Type of food/treats?</li>
+                    <li>Recent diet changes? People food?</li>
+                    <li>Last flea prevention? Type?</li>
+                    <li>Severity (1-10 scale)?</li>
+                </ul>
+                <div class="info-box">
+                    <strong>Next Step:</strong> Send to medical for callback
+                </div>
+                
+                <h2>Ear Issues</h2>
+                <ul>
+                    <li>New problem? When started?</li>
+                    <li>Both ears affected?</li>
+                    <li>What is M noting? (smell/discharge/debris)</li>
+                    <li>Current ear meds?</li>
+                    <li>Food? Diet changes? People food?</li>
+                </ul>
+                <div class="info-box">
+                    <strong>Next Step:</strong> Schedule D/O appointment + send home ear cleaner
+                </div>
+                
+                <h2>Blood in Urine/Stool</h2>
+                <ul>
+                    <li>History of urinary issues?</li>
+                    <li>When first noticed?</li>
+                    <li>Straining to urinate/have BM?</li>
+                    <li>Eating/drinking normal?</li>
+                    <li>Changes to diet? Current medication?</li>
+                </ul>
+                <div class="info-box">
+                    <strong>Next Step:</strong> Have Member drop off sample within 1 hour of collection
+                </div>
+            </div>
+            
+            <!-- Page 8: Symptom Guides - Part 3 -->
+            <div class="page" id="page8">
+                <h1>Symptom Guides - Part 3</h1>
+                
+                <h2>Limping/Lameness</h2>
+                <ul>
+                    <li>Which limb is affected?</li>
+                    <li>Previous issues with this limb?</li>
+                    <li>How long has this been going on?</li>
+                    <li>Pet able to put weight on leg?</li>
+                    <li>Known cause?</li>
+                    <li>Better/worse after rest/exercise?</li>
+                </ul>
+                <div class="info-box">
+                    <strong>Next Step:</strong> Minimize activity 24h → Carprofen/Gabapentin 3 days → Call if persists
+                </div>
+                
+                <h2>Scooting</h2>
+                <ul>
+                    <li>How long has pet been scooting?</li>
+                    <li>Previous anal gland issues?</li>
+                    <li>Swelling or discharge from rectum?</li>
+                    <li>Pet licking rectum area?</li>
+                </ul>
+                <div class="info-box">
+                    <strong>Next Step:</strong> Send to medical for callback
+                </div>
+                
+                <h2>Seizures</h2>
+                <ul>
+                    <li>History of seizures?</li>
+                    <li>Conscious during episode?</li>
+                    <li>How long did episode last?</li>
+                    <li>Additional episodes in last 24h?</li>
+                    <li>How was Pet before/after? (Clingy, agitated, disoriented, lethargic)</li>
+                </ul>
+                <div class="info-box">
+                    <strong>Next Step:</strong> Have M keep seizure journal + send note to medical
+                </div>
+                
+                <h2>Food & Diets</h2>
+                <h3>Recommended Brands:</h3>
+                <ul>
+                    <li>Royal Canin</li>
+                    <li>Hill's Science Diet</li>
+                    <li>Purina Pro Plan</li>
+                    <li>Purina Veterinary Diets</li>
+                </ul>
+                <h3>Bland Diet (2:1 starch:protein):</h3>
+                <div class="highlight-box">
+                    <strong>Protein:</strong> Boiled chicken/turkey, ground beef/turkey (fat removed), low-fat cottage cheese<br>
+                    <strong>Starch:</strong> Rice, oatmeal, pasta
+                </div>
+            </div>
+            
+            <!-- Page 9: Medications - Part 1 -->
+            <div class="page" id="page9">
+                <h1>Medications Reference - Part 1</h1>
+                
+                <div class="tabs" id="med-tabs1">
+                    <div class="tab active" data-target="pain">Pain Relief</div>
+                    <div class="tab" data-target="endocrine">Endocrine</div>
+                    <div class="tab" data-target="antibiotics">Antibiotics</div>
+                </div>
+                
+                <div class="section active" id="pain">
+                    <h2>Analgesics / Pain Relief</h2>
+                    <table>
+                        <tr><th>Medication</th><th>Use</th><th>Key Notes</th></tr>
+                        <tr><td>Carprofen</td><td>NSAID, pain/inflammation</td><td>DOGS ONLY, with food, NO steroids</td></tr>
+                        <tr><td>Gabapentin</td><td>Chronic pain, sedative in cats</td><td>Drowsiness, incoordination</td></tr>
+                        <tr><td>Meloxicam</td><td>NSAID, pain/inflammation</td><td>With food, NO steroids</td></tr>
+                        <tr><td>Tramadol (C)</td><td>Synthetic opioid</td><td>CONTROLLED, sedation, GI upset</td></tr>
+                        <tr><td>Buprenorphine (C)</td><td>Opioid analgesic</td><td>CONTROLLED, drowsiness</td></tr>
+                    </table>
+                </div>
+                
+                <div class="section" id="endocrine">
+                    <h2>Endocrine Medications</h2>
+                    <table>
+                        <tr><th>Medication</th><th>Use</th><th>Key Notes</th></tr>
+                        <tr><td>Methimazole</td><td>Hyperthyroidism</td><td>CATS, lifelong, vomiting possible</td></tr>
+                        <tr><td>Thyro-Tabs</td><td>Hypothyroidism</td><td>DOGS primarily, skin reactions</td></tr>
+                        <tr><td>Vetyol (trilostane)</td><td>Hyperadrenocorticism</td><td>With food, lethargy, GI upset</td></tr>
+                        <tr><td>Insulin</td><td>Diabetes</td><td>Use CORRECT syringes (U40/U100)</td></tr>
+                    </table>
+                </div>
+                
+                <div class="section" id="antibiotics">
+                    <h2>Common Antibiotics</h2>
+                    <table>
+                        <tr><th>Medication</th><th>Use</th><th>Key Notes</th></tr>
+                        <tr><td>Amoxicillin</td><td>Broad-spectrum</td><td>With food, GI upset</td></tr>
+                        <tr><td>Clavamox</td><td>Broad-spectrum</td><td>With food, GI upset</td></tr>
+                        <tr><td>Doxycycline</td><td>Broad-spectrum</td><td>Cats need liquid form</td></tr>
+                        <tr><td>Metronidazole</td><td>Diarrhea, intestinal</td><td>WEAR GLOVES, with food</td></tr>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- Page 10: Medications - Part 2 & Conversions -->
+            <div class="page" id="page10">
+                <h1>Medications & Conversions</h1>
+                
+                <div class="tabs" id="med-tabs2">
+                    <div class="tab active" data-target="cardiac">Cardiac</div>
+                    <div class="tab" data-target="gi">GI</div>
+                    <div class="tab" data-target="seizures">Seizures</div>
+                </div>
+                
+                <div class="section active" id="cardiac">
+                    <h2>Cardiovascular</h2>
+                    <table>
+                        <tr><th>Medication</th><th>Use</th><th>Key Notes</th></tr>
+                        <tr><td>Amlodipine</td><td>Hypertension</td><td>GI upset, drowsiness</td></tr>
+                        <tr><td>Pimobendan</td><td>Heart function</td><td>GI upset, lethargy</td></tr>
+                        <tr><td>Furosemide</td><td>Diuretic, CHF</td><td>Increased urination/thirst</td></tr>
+                    </table>
+                </div>
+                
+                <div class="section" id="gi">
+                    <h2>Gastrointestinal</h2>
+                    <table>
+                        <tr><th>Medication</th><th>Use</th><th>Key Notes</th></tr>
+                        <tr><td>Cerenia</td><td>Antiemetic</td><td>Vomiting, motion sickness</td></tr>
+                        <tr><td>Famotidine</td><td>Antiacid</td><td>Empty stomach before meals</td></tr>
+                        <tr><td>Mirtazapine</td><td>Appetite stimulant</td><td>Vocalization, agitation</td></tr>
+                    </table>
+                </div>
+                
+                <div class="section" id="seizures">
+                    <h2>Anticonvulsants</h2>
+                    <table>
+                        <tr><th>Medication</th><th>Use</th><th>Key Notes</th></tr>
+                        <tr><td>Levetiracetam</td><td>Seizures, epilepsy</td><td>ER = BID, non-ER = TID</td></tr>
+                        <tr><td>Phenobarbital (C)</td><td>Seizures</td><td>CONTROLLED, taper slowly</td></tr>
+                        <tr><td>Diazepam (C)</td><td>Seizures, anxiety</td><td>CONTROLLED, injectable form rectal for seizures</td></tr>
+                    </table>
+                </div>
+                
+                <h2>Key Conversions</h2>
+                <div class="info-box">
+                    <strong>Weight:</strong> 1 lb = 0.45 kg | 1 kg = 2.2 lb<br>
+                    <strong>Volume:</strong> 1 oz = 30 mL | 1 tsp = 5 mL | 1 tbsp = 15 mL<br>
+                    <strong>Time:</strong> 0100 = 1:00 AM | 1300 = 1:00 PM | 1200 = 12:00 PM
+                </div>
+            </div>
+            
+            <!-- Page 11: Abbreviations & Resources -->
             <div class="page" id="page11">
-                <div style="text-align: center; margin-top: 25%;">
-                    <h1 style="color: var(--hannah-green); margin-bottom: 1rem;">Reference Manual Complete</h1>
-                    <div style="color: var(--hannah-navy); font-size: 1.2rem; margin-bottom: 2rem;">
-                        Thank you for your commitment to exceptional service
-                    </div>
-                    
-                    <div style="background: rgba(249, 200, 53, 0.1); padding: 1.5rem; border-radius: 8px; max-width: 500px; margin: 0 auto; border: 2px solid var(--hannah-yellow);">
-                        <h3 style="color: var(--hannah-navy); margin-bottom: 0.5rem;">Need Assistance?</h3>
-                        <p style="margin-bottom: 0.5rem;">Contact your manager or senior team member</p>
-                        <p>Refer to this manual for quick answers</p>
-                    </div>
-                    
-                    <div style="margin-top: 3rem; padding-top: 1.5rem; border-top: 2px solid var(--hannah-yellow);">
-                        <div style="font-weight: bold; color: var(--hannah-blue); margin-bottom: 0.5rem;">Hannah Pet Hospital</div>
-                        <div style="color: var(--hannah-navy); margin-bottom: 0.5rem;">Reception Reference Manual v1.0</div>
-                        <div style="color: var(--hannah-orange); font-size: 0.9rem;">Proprietary & Confidential</div>
-                    </div>
+                <h1>Abbreviations & Resources</h1>
+                
+                <h2>Common Abbreviations</h2>
+                <div class="info-box">
+                    <strong>Body Parts:</strong> ad=right ear, as=left ear, au=both ears<br>
+                    <strong>Administration:</strong> po=by mouth, im=intramuscular, sq=subcutaneous<br>
+                    <strong>Frequency:</strong> sid=once daily, bid=twice daily, tid=three times daily<br>
+                    <strong>Conditions:</strong> ADR=ain't doing right, URI=upper respiratory infection<br>
+                    <strong>Diagnostics:</strong> PE=physical exam, HR=heart rate, UA=urinalysis
+                </div>
+                
+                <h2>Vaccines</h2>
+                <div class="highlight-box">
+                    <strong>Dogs:</strong> DAPPv, Lepto, Bordetella, Flu, Rabies<br>
+                    <strong>Cats:</strong> HCP, FeLV, Rabies
+                </div>
+                
+                <h2>Resources</h2>
+                <ul>
+                    <li><strong>Medical Emails:</strong><br>
+                        HE1: PortlandMedical@hannahpethospital.com<br>
+                        HE2: TigardMedical@hannahpethospital.com</li>
+                    <li><strong>IDEXX VetConnect Plus:</strong> hannahsociety / password</li>
+                    <li><strong>Computers after shutdown:</strong> Hannah123</li>
+                </ul>
+                
+                <div style="margin-top: 2rem; padding-top: 1rem; border-top: 2px solid var(--hannah-yellow); text-align: center;">
+                    <h3 style="color: var(--hannah-blue);">Member Services Reference Manual</h3>
+                    <p style="color: var(--hannah-navy);">Hannah Pet Hospital</p>
+                    <p style="color: var(--hannah-orange); font-size: 0.9rem;">Proprietary & Confidential</p>
                 </div>
             </div>
         </div>
@@ -502,6 +1028,35 @@
             totalPagesEl.textContent = totalPages;
             updatePageIndicator();
             
+            // Tab functionality
+            function setupTabs(containerId) {
+                const tabs = document.querySelectorAll(`#${containerId} .tab`);
+                tabs.forEach(tab => {
+                    tab.addEventListener('click', function() {
+                        const target = this.getAttribute('data-target');
+                        const page = this.closest('.page').id;
+                        
+                        // Update active tab
+                        this.parentElement.querySelectorAll('.tab').forEach(t => {
+                            t.classList.remove('active');
+                        });
+                        this.classList.add('active');
+                        
+                        // Show corresponding section
+                        const sections = document.querySelectorAll(`#${page} .section`);
+                        sections.forEach(section => {
+                            section.classList.remove('active');
+                        });
+                        document.getElementById(target).classList.add('active');
+                    });
+                });
+            }
+            
+            // Setup all tab containers
+            setupTabs('appointment-tabs');
+            setupTabs('med-tabs1');
+            setupTabs('med-tabs2');
+            
             function goToPage(page) {
                 currentPage = Math.max(1, Math.min(totalPages, page));
                 updateFlipbook();
@@ -523,19 +1078,83 @@
             nextBtn.addEventListener('click', () => goToPage(currentPage + 1));
             
             tocBtn.addEventListener('click', function() {
-                const pageNum = prompt("Jump to page (1-11):");
+                const pageNames = [
+                    "Cover",
+                    "Appointment Scheduling", 
+                    "Check-In Protocol",
+                    "Diagnostic Testing & Urgent Care",
+                    "Nurse Roles & Triage",
+                    "Symptom Guides - Part 1",
+                    "Symptom Guides - Part 2",
+                    "Symptom Guides - Part 3",
+                    "Medications Reference - Part 1",
+                    "Medications & Conversions",
+                    "Abbreviations & Resources"
+                ];
+                
+                let tocText = "TABLE OF CONTENTS:\n\n";
+                pageNames.forEach((name, index) => {
+                    tocText += `${index + 1}. ${name}\n`;
+                });
+                
+                const pageNum = prompt(tocText + "\nEnter page number to jump to (1-11):");
                 if (pageNum && !isNaN(pageNum) && pageNum >= 1 && pageNum <= 11) {
                     goToPage(parseInt(pageNum));
                 }
             });
             
             printBtn.addEventListener('click', function() {
-                window.print();
+                const printWindow = window.open('', '_blank');
+                const pageContent = document.getElementById(`page${currentPage}`).innerHTML;
+                
+                printWindow.document.write(`
+                    <html>
+                    <head>
+                        <title>Hannah Pet Hospital - Page ${currentPage}</title>
+                        <style>
+                            body { font-family: Arial, sans-serif; margin: 2rem; line-height: 1.5; }
+                            h1 { color: #00A854; border-bottom: 2px solid #F9C835; padding-bottom: 0.5rem; }
+                            h2 { color: #003C71; margin-top: 1.5rem; }
+                            h3 { color: #00A8E8; }
+                            .highlight-box, .warning-box, .info-box { 
+                                padding: 1rem; margin: 1rem 0; border-left: 4px solid; 
+                                border-radius: 0 6px 6px 0;
+                            }
+                            .highlight-box { border-color: #00A854; background: rgba(0,168,84,0.1); }
+                            .warning-box { border-color: #E35C25; background: rgba(227,92,37,0.1); }
+                            .info-box { border-color: #00A8E8; background: rgba(0,168,232,0.1); }
+                            table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+                            th { background: #003C71; color: white; padding: 0.8rem; text-align: left; }
+                            td { padding: 0.8rem; border-bottom: 1px solid #eee; }
+                            @media print { .no-print { display: none; } }
+                        </style>
+                    </head>
+                    <body>
+                        <div class="no-print" style="background: #F9C835; padding: 1rem; margin-bottom: 2rem; border-radius: 4px;">
+                            <strong>Hannah Pet Hospital - Reception Reference Manual</strong><br>
+                            Page ${currentPage} of ${totalPages} - Printed for reference use only
+                        </div>
+                        ${pageContent}
+                        <div class="no-print" style="margin-top: 2rem; padding-top: 1rem; border-top: 1px dashed #ccc; font-size: 0.9rem; color: #666;">
+                            Printed on ${new Date().toLocaleDateString()} | Proprietary & Confidential
+                        </div>
+                    </body>
+                    </html>
+                `);
+                
+                printWindow.document.close();
+                setTimeout(() => printWindow.print(), 500);
             });
             
             document.addEventListener('keydown', function(e) {
                 if (e.key === 'ArrowLeft') goToPage(currentPage - 1);
                 if (e.key === 'ArrowRight') goToPage(currentPage + 1);
+                if (e.key >= '1' && e.key <= '9') {
+                    const pageNum = parseInt(e.key);
+                    if (pageNum <= totalPages) goToPage(pageNum);
+                }
+                if (e.key === '0' || e.key === '`') goToPage(10); // 0 or ` for page 10
+                if (e.key === '-') goToPage(11); // - for page 11
             });
             
             updateFlipbook();
