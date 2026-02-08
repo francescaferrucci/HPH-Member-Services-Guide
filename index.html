@@ -1117,13 +1117,14 @@
         </div>
     </div>
 
-    <!-- Navigation controls -->
+       <!-- Navigation controls with Home button -->
     <div class="controls">
         <button class="btn prev" id="prev-btn">
             <span>◀</span> Previous
         </button>
         
         <div>
+            <button class="btn" id="home-btn">🏠 Home</button>
             <button class="btn" id="toc-btn">Contents</button>
             <button class="btn" id="print-btn">Print</button>
         </div>
@@ -1150,12 +1151,15 @@
             const tocBtn = document.getElementById('toc-btn');
             const printBtn = document.getElementById('print-btn');
             
+             // ADD THIS LINE - Get the Home button
+            const homeBtn = document.getElementById('home-btn');
+            
             const totalPages = 11;
             let currentPage = 1;
             
             totalPagesEl.textContent = totalPages;
             updatePageIndicator();
-            
+                    
             // Tab functionality
             function setupTabs(containerId) {
                 const tabs = document.querySelectorAll(`#${containerId} .tab`);
