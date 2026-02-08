@@ -377,6 +377,53 @@
             display: block;
         }
         
+                /* Navigation cards for cover page */
+        .nav-card {
+            background: white;
+            border: 2px solid var(--hannah-blue);
+            border-radius: 12px;
+            padding: 1.2rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+        
+        .nav-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+            border-color: var(--hannah-green);
+            background: linear-gradient(135deg, rgba(0, 168, 84, 0.05), rgba(0, 168, 232, 0.05));
+        }
+        
+        .nav-card:active {
+            transform: translateY(-2px);
+        }
+        
+        /* Page indicator highlighting */
+        .page-indicator {
+            font-family: 'Teen', sans-serif;
+            font-size: 1rem;
+            color: var(--hannah-navy);
+            background: rgba(0, 60, 113, 0.1);
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .page-indicator.highlight {
+            background: var(--hannah-yellow);
+            color: var(--hannah-navy);
+            font-weight: bold;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(249, 200, 53, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(249, 200, 53, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(249, 200, 53, 0); }
+        }
+        
         /* Responsive design */
         @media (max-width: 768px) {
             .flipbook-container {
@@ -1089,6 +1136,14 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+                        // Cover page navigation cards
+            const navCards = document.querySelectorAll('.nav-card');
+            navCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    const targetPage = this.getAttribute('data-page');
+                    goToPage(parseInt(targetPage));
+                });
+            });
             const prevBtn = document.getElementById('prev-btn');
             const nextBtn = document.getElementById('next-btn');
             const currentPageEl = document.getElementById('current-page');
