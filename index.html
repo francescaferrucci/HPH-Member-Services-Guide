@@ -330,15 +330,6 @@
             background: var(--hannah-blue);
         }
         
-        .page-indicator {
-            font-family: 'Teen', sans-serif;
-            font-size: 1rem;
-            color: var(--hannah-navy);
-            background: rgba(0, 60, 113, 0.1);
-            padding: 0.4rem 0.8rem;
-            border-radius: 20px;
-        }
-        
         /* Content tabs */
         .tabs {
             display: flex;
@@ -377,7 +368,7 @@
             display: block;
         }
         
-                /* Navigation cards for cover page */
+        /* Navigation cards for cover page */
         .nav-card {
             background: white;
             border: 2px solid var(--hannah-blue);
@@ -502,8 +493,11 @@
         <div class="page-indicator">Page <span id="current-page">1</span> of <span id="total-pages">11</span></div>
     </header>
 
-    <!-- Flipbook container -->
-               <!-- Page 1: Cover with Navigation Tabs -->
+    <!-- Flipbook container - THIS WAS MISSING! -->
+    <div class="flipbook-container">
+        <div class="flipbook" id="flipbook">
+            
+            <!-- Page 1: Cover with Navigation Tabs -->
             <div class="page cover-page active" id="page1">
                 <div class="cover-content">
                     <div class="cover-logo">
@@ -753,7 +747,7 @@
             <div class="page" id="page4">
                 <h1>Diagnostic Testing</h1>
                 
-                <h2>Diagnostic Testing "ABD"</h2>
+                <h2>Diagnostic Testing</h2>
                 
                 <h3>A - ACTH Stimulation Test</h3>
                 <ul>
@@ -806,7 +800,6 @@
             </div>
             
             <!-- Page 6: Triage & Symptom Guides - Part 1 -->
-                       <!-- Page 6: Triage & Symptom Guides - Part 1 -->
             <div class="page" id="page6">
                 <h1>Triage & Symptom Guides - Part 1</h1>
 
@@ -852,7 +845,7 @@
                     <li>Other symptoms?</li>
                 </ul>
                 <div class="warning-box">
-                    <strong>Next Step:</strong> Send to medical for immediate callback
+                    <strong>Next Step:</strong> Send to Hannah Help Line for immediate callback
                 </div>
                 
                 <h2>Eye/Nose Discharge</h2>
@@ -864,7 +857,7 @@
                     <li>Recent contact with other dogs?</li>
                 </ul>
                 <div class="info-box">
-                    <strong>Next Step:</strong> Ask M to send photo to medical email + note for callback
+                    <strong>Next Step:</strong> Ask Member to send photo to medical email + note for callback
                 </div>
                 
                 <h2>ADR (Ain't Doing Right)</h2>
@@ -1114,10 +1107,11 @@
                     <p style="color: var(--hannah-orange); font-size: 0.9rem;">Proprietary & Confidential</p>
                 </div>
             </div>
-        </div>
-    </div>
+            
+        </div> <!-- Close flipbook div -->
+    </div> <!-- Close flipbook-container div -->
 
-       <!-- Navigation controls with Home button -->
+    <!-- Navigation controls with Home button -->
     <div class="controls">
         <button class="btn prev" id="prev-btn">
             <span>◀</span> Previous
@@ -1136,7 +1130,7 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-                        // Cover page navigation cards
+            // Cover page navigation cards
             const navCards = document.querySelectorAll('.nav-card');
             navCards.forEach(card => {
                 card.addEventListener('click', function() {
@@ -1144,22 +1138,27 @@
                     goToPage(parseInt(targetPage));
                 });
             });
+            
+            // Get all button elements
             const prevBtn = document.getElementById('prev-btn');
             const nextBtn = document.getElementById('next-btn');
-            const currentPageEl = document.getElementById('current-page');
-            const totalPagesEl = document.getElementById('total-pages');
+            const homeBtn = document.getElementById('home-btn');
             const tocBtn = document.getElementById('toc-btn');
             const printBtn = document.getElementById('print-btn');
-            
-             // ADD THIS LINE - Get the Home button
-            const homeBtn = document.getElementById('home-btn');
+            const currentPageEl = document.getElementById('current-page');
+            const totalPagesEl = document.getElementById('total-pages');
             
             const totalPages = 11;
             let currentPage = 1;
             
             totalPagesEl.textContent = totalPages;
             updatePageIndicator();
-                    
+            
+            // Home button event listener - ADDED
+            homeBtn.addEventListener('click', function() {
+                goToPage(1);
+            });
+            
             // Tab functionality
             function setupTabs(containerId) {
                 const tabs = document.querySelectorAll(`#${containerId} .tab`);
@@ -1220,9 +1219,9 @@
                     "Cover",
                     "Appointment Scheduling", 
                     "Check-In Protocol",
-                    "Diagnostic Testing & Urgent Care",
-                    "Nurse Roles & Triage",
-                    "Symptom Guides - Part 1",
+                    "Diagnostic Testing",
+                    "Nurse Roles",
+                    "Triage & Symptom Guides - Part 1",
                     "Symptom Guides - Part 2",
                     "Symptom Guides - Part 3",
                     "Medications Reference - Part 1",
@@ -1269,7 +1268,7 @@
                     </head>
                     <body>
                         <div class="no-print" style="background: #F9C835; padding: 1rem; margin-bottom: 2rem; border-radius: 4px;">
-                            <strong>Hannah Pet Hospital - Reception Reference Manual</strong><br>
+                            <strong>Hannah Pet Hospital - Member Services Reference Manual</strong><br>
                             Page ${currentPage} of ${totalPages} - Printed for reference use only
                         </div>
                         ${pageContent}
