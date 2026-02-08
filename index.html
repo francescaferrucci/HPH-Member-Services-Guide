@@ -456,9 +456,7 @@
     </header>
 
     <!-- Flipbook container -->
-    <div class="flipbook-container">
-        <div class="flipbook" id="flipbook">
-            <!-- Page 1: Cover -->
+               <!-- Page 1: Cover with Navigation Tabs -->
             <div class="page cover-page active" id="page1">
                 <div class="cover-content">
                     <div class="cover-logo">
@@ -473,12 +471,59 @@
                         A Quick Reference Guide to Exceptional Member Service
                     </div>
                     
+                    <!-- Navigation Tabs Grid -->
+                    <div style="margin: 2rem 0;">
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.8rem; margin-bottom: 1.5rem;">
+                            <div class="nav-card" data-page="2">
+                                <div style="font-size: 1.8rem; margin-bottom: 0.5rem;">📅</div>
+                                <div style="font-weight: bold; color: var(--hannah-navy);">Appointment Scheduling</div>
+                                <div style="font-size: 0.8rem; color: var(--hannah-blue); margin-top: 0.3rem;">Page 2</div>
+                            </div>
+                            
+                            <div class="nav-card" data-page="3">
+                                <div style="font-size: 1.8rem; margin-bottom: 0.5rem;">✅</div>
+                                <div style="font-weight: bold; color: var(--hannah-navy);">Check-In Protocol</div>
+                                <div style="font-size: 0.8rem; color: var(--hannah-blue); margin-top: 0.3rem;">Page 3</div>
+                            </div>
+                            
+                            <div class="nav-card" data-page="4">
+                                <div style="font-size: 1.8rem; margin-bottom: 0.5rem;">🩺</div>
+                                <div style="font-weight: bold; color: var(--hannah-navy);">Diagnostic Testing</div>
+                                <div style="font-size: 0.8rem; color: var(--hannah-blue); margin-top: 0.3rem;">Page 4</div>
+                            </div>
+                            
+                            <div class="nav-card" data-page="5">
+                                <div style="font-size: 1.8rem; margin-bottom: 0.5rem;">👩‍⚕️</div>
+                                <div style="font-weight: bold; color: var(--hannah-navy);">Nurse Roles</div>
+                                <div style="font-size: 0.8rem; color: var(--hannah-blue); margin-top: 0.3rem;">Page 5</div>
+                            </div>
+                            
+                            <div class="nav-card" data-page="6">
+                                <div style="font-size: 1.8rem; margin-bottom: 0.5rem;">⚠️</div>
+                                <div style="font-weight: bold; color: var(--hannah-navy);">Triage & Symptoms</div>
+                                <div style="font-size: 0.8rem; color: var(--hannah-blue); margin-top: 0.3rem;">Pages 6-8</div>
+                            </div>
+                            
+                            <div class="nav-card" data-page="9">
+                                <div style="font-size: 1.8rem; margin-bottom: 0.5rem;">💊</div>
+                                <div style="font-weight: bold; color: var(--hannah-navy);">Medications Reference</div>
+                                <div style="font-size: 0.8rem; color: var(--hannah-blue); margin-top: 0.3rem;">Pages 9-10</div>
+                            </div>
+                            
+                            <div class="nav-card" data-page="11">
+                                <div style="font-size: 1.8rem; margin-bottom: 0.5rem;">🔤</div>
+                                <div style="font-weight: bold; color: var(--hannah-navy);">Abbreviations & Resources</div>
+                                <div style="font-size: 0.8rem; color: var(--hannah-blue); margin-top: 0.3rem;">Page 11</div>
+                            </div>
+                        </div>
+                    </div>
+                    
                     <div class="cover-brand">Hannah Pet Hospital</div>
                     <div class="cover-confidential">Proprietary & Confidential</div>
                     
                     <div class="cover-instruction">
-                        <div class="instruction-main">Use arrows or buttons below to navigate</div>
-                        <div class="instruction-detail">Press ← → keys or click Previous/Next</div>
+                        <div class="instruction-main">Click any section above to jump directly</div>
+                        <div class="instruction-detail">Or use arrows/buttons below to browse</div>
                     </div>
                 </div>
             </div>
