@@ -509,6 +509,18 @@
             border-bottom: none;
         }
         
+        /* Cross-page navigation indicator */
+        .page-nav-indicator {
+            background: var(--hannah-green);
+            color: white;
+            padding: 0.3rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-left: 0.5rem;
+            display: inline-block;
+        }
+        
         /* PDF link styling */
         .pdf-link {
             color: var(--hannah-blue);
@@ -923,13 +935,13 @@
             <div class="page" id="page6">
                 <h1>Triage & Symptom Guides</h1>
 
-                <!-- Search Bar -->
+                <!-- Search Bar - Now searches ALL symptom pages -->
                 <div class="search-container">
                     <div class="search-icon">🔍</div>
-                    <input type="text" class="search-input" id="symptom-search" placeholder="Search symptoms (e.g., vomiting, limping, seizures)...">
+                    <input type="text" class="search-input" id="symptom-search-all" placeholder="Search ALL symptoms across pages 6-8...">
                 </div>
 
-                <!-- Quick Symptom Navigation -->
+                <!-- Quick Symptom Navigation - All symptoms -->
                 <div class="symptom-nav" id="symptom-nav">
                     <button class="symptom-nav-btn" data-target="immediate">⚠️ Immediate Care</button>
                     <button class="symptom-nav-btn" data-target="vomiting">🤮 Vomiting/Diarrhea</button>
@@ -943,11 +955,12 @@
                     <button class="symptom-nav-btn" data-target="limping">🦵 Limping</button>
                     <button class="symptom-nav-btn" data-target="scooting">🛷 Scooting</button>
                     <button class="symptom-nav-btn" data-target="seizures">⚡ Seizures</button>
+                    <button class="symptom-nav-btn" data-target="food">🍖 Food & Diets</button>
                 </div>
 
                 <!-- Symptom Sections with IDs -->
                 <div class="symptom-section" id="immediate">
-                    <h2>Immediate Attention Needed</h2>
+                    <h2>Immediate Attention Needed <span class="page-nav-indicator">Page 6</span></h2>
                     <div class="warning-box">
                         <p><strong>URGENT CARE - Notify medical immediately</strong></p>
                     </div>
@@ -967,7 +980,7 @@
                 </div>
 
                 <div class="symptom-section" id="vomiting">
-                    <h2>Vomiting/Diarrhea</h2>
+                    <h2>Vomiting/Diarrhea <span class="page-nav-indicator">Page 6</span></h2>
                     <h3>Questions to Ask:</h3>
                     <ul>
                         <li>When was Pet last 100% normal?</li>
@@ -984,7 +997,7 @@
                 </div>
 
                 <div class="symptom-section" id="toxicity">
-                    <h2>Toxicity Ingestion</h2>
+                    <h2>Toxicity Ingestion <span class="page-nav-indicator">Page 6</span></h2>
                     <ul>
                         <li>What did Pet eat? (Have container?)</li>
                         <li>How much? When?</li>
@@ -998,7 +1011,7 @@
                 </div>
 
                 <div class="symptom-section" id="eye">
-                    <h2>Eye/Nose Discharge</h2>
+                    <h2>Eye/Nose Discharge <span class="page-nav-indicator">Page 6</span></h2>
                     <ul>
                         <li>When did it start?</li>
                         <li>Color of discharge?</li>
@@ -1012,7 +1025,7 @@
                 </div>
 
                 <div class="symptom-section" id="adr">
-                    <h2>ADR (Ain't Doing Right)</h2>
+                    <h2>ADR (Ain't Doing Right) <span class="page-nav-indicator">Page 6</span></h2>
                     <ul>
                         <li>Last time Pet was 100% normal?</li>
                         <li>Possible ingestion of something?</li>
@@ -1030,23 +1043,32 @@
             <div class="page" id="page7">
                 <h1>Symptom Guides - Part 2</h1>
                 
-                <!-- Search Bar for Page 7 -->
+                <!-- Search Bar for Page 7 - Also searches ALL symptoms -->
                 <div class="search-container">
                     <div class="search-icon">🔍</div>
-                    <input type="text" class="search-input" id="symptom-search-7" placeholder="Search symptoms (e.g., lump, skin, ears, blood)...">
+                    <input type="text" class="search-input" id="symptom-search-all-7" placeholder="Search ALL symptoms across pages 6-8...">
                 </div>
 
-                <!-- Quick Symptom Navigation for Page 7 -->
+                <!-- Quick Symptom Navigation for Page 7 - All symptoms -->
                 <div class="symptom-nav">
+                    <button class="symptom-nav-btn" data-target="immediate">⚠️ Immediate Care</button>
+                    <button class="symptom-nav-btn" data-target="vomiting">🤮 Vomiting/Diarrhea</button>
+                    <button class="symptom-nav-btn" data-target="toxicity">☠️ Toxicity</button>
+                    <button class="symptom-nav-btn" data-target="eye">👁️ Eye/Nose Discharge</button>
+                    <button class="symptom-nav-btn" data-target="adr">😴 ADR/Lethargy</button>
                     <button class="symptom-nav-btn" data-target="lump">🔘 Lump/Mass</button>
                     <button class="symptom-nav-btn" data-target="skin">🤚 Skin/Itching</button>
                     <button class="symptom-nav-btn" data-target="ears">👂 Ear Issues</button>
                     <button class="symptom-nav-btn" data-target="blood">💉 Blood in Urine/Stool</button>
+                    <button class="symptom-nav-btn" data-target="limping">🦵 Limping</button>
+                    <button class="symptom-nav-btn" data-target="scooting">🛷 Scooting</button>
+                    <button class="symptom-nav-btn" data-target="seizures">⚡ Seizures</button>
+                    <button class="symptom-nav-btn" data-target="food">🍖 Food & Diets</button>
                 </div>
 
                 <!-- Continue with symptom sections with proper classes -->
                 <div class="symptom-section" id="lump">
-                    <h2>Lump/Mass</h2>
+                    <h2>Lump/Mass <span class="page-nav-indicator">Page 7</span></h2>
                     <ul>
                         <li>Location of lump?</li>
                         <li>When first noticed?</li>
@@ -1059,7 +1081,7 @@
                 </div>
                 
                 <div class="symptom-section" id="skin">
-                    <h2>Skin/Itching</h2>
+                    <h2>Skin/Itching <span class="page-nav-indicator">Page 7</span></h2>
                     <ul>
                         <li>Previous skin issues?</li>
                         <li>When did it synptoms first start?</li>
@@ -1075,7 +1097,7 @@
                 </div>
                 
                 <div class="symptom-section" id="ears">
-                    <h2>Ear Issues</h2>
+                    <h2>Ear Issues <span class="page-nav-indicator">Page 7</span></h2>
                     <ul>
                         <li>New problem? When started?</li>
                         <li>Both ears affected?</li>
@@ -1089,7 +1111,7 @@
                 </div>
                 
                 <div class="symptom-section" id="blood">
-                    <h2>Blood in Urine/Stool</h2>
+                    <h2>Blood in Urine/Stool <span class="page-nav-indicator">Page 7</span></h2>
                     <ul>
                         <li>History of urinary issues?</li>
                         <li>When did Member first notice?</li>
@@ -1107,21 +1129,31 @@
             <div class="page" id="page8">
                 <h1>Symptom Guides - Part 3</h1>
                 
-                <!-- Search Bar for Page 8 -->
+                <!-- Search Bar for Page 8 - Also searches ALL symptoms -->
                 <div class="search-container">
                     <div class="search-icon">🔍</div>
-                    <input type="text" class="search-input" id="symptom-search-8" placeholder="Search symptoms (e.g., limping, scooting, seizures)...">
+                    <input type="text" class="search-input" id="symptom-search-all-8" placeholder="Search ALL symptoms across pages 6-8...">
                 </div>
 
-                <!-- Quick Symptom Navigation (also on page 8) -->
+                <!-- Quick Symptom Navigation - All symptoms -->
                 <div class="symptom-nav">
+                    <button class="symptom-nav-btn" data-target="immediate">⚠️ Immediate Care</button>
+                    <button class="symptom-nav-btn" data-target="vomiting">🤮 Vomiting/Diarrhea</button>
+                    <button class="symptom-nav-btn" data-target="toxicity">☠️ Toxicity</button>
+                    <button class="symptom-nav-btn" data-target="eye">👁️ Eye/Nose Discharge</button>
+                    <button class="symptom-nav-btn" data-target="adr">😴 ADR/Lethargy</button>
+                    <button class="symptom-nav-btn" data-target="lump">🔘 Lump/Mass</button>
+                    <button class="symptom-nav-btn" data-target="skin">🤚 Skin/Itching</button>
+                    <button class="symptom-nav-btn" data-target="ears">👂 Ear Issues</button>
+                    <button class="symptom-nav-btn" data-target="blood">💉 Blood in Urine/Stool</button>
                     <button class="symptom-nav-btn" data-target="limping">🦵 Limping</button>
                     <button class="symptom-nav-btn" data-target="scooting">🛷 Scooting</button>
                     <button class="symptom-nav-btn" data-target="seizures">⚡ Seizures</button>
+                    <button class="symptom-nav-btn" data-target="food">🍖 Food & Diets</button>
                 </div>
                 
                 <div class="symptom-section" id="limping">
-                    <h2>Limping/Lameness</h2>
+                    <h2>Limping/Lameness <span class="page-nav-indicator">Page 8</span></h2>
                     <ul>
                         <li>Which limb is affected?</li>
                         <li>Previous issues with this limb?</li>
@@ -1136,7 +1168,7 @@
                 </div>
                 
                 <div class="symptom-section" id="scooting">
-                    <h2>Scooting</h2>
+                    <h2>Scooting <span class="page-nav-indicator">Page 8</span></h2>
                     <ul>
                         <li>How long has Pet been scooting?</li>
                         <li>Previous anal gland issues?</li>
@@ -1149,7 +1181,7 @@
                 </div>
                 
                 <div class="symptom-section" id="seizures">
-                    <h2>Seizures</h2>
+                    <h2>Seizures <span class="page-nav-indicator">Page 8</span></h2>
                     <ul>
                         <li>History of seizures?</li>
                         <li>Conscious during episode?</li>
@@ -1163,7 +1195,7 @@
                 </div>
                 
                 <div class="symptom-section" id="food">
-                    <h2>Food & Diets</h2>
+                    <h2>Food & Diets <span class="page-nav-indicator">Page 8</span></h2>
                     <h3>Recommended Brands:</h3>
                     <ul>
                         <li>Royal Canin</li>
@@ -1415,81 +1447,140 @@
                 }, 2000);
             }
             
-            // Symptom search and navigation functionality
+            // Store original content of all symptom sections
+            const allSymptomSections = {};
+            const symptomPageMap = {
+                'immediate': 6, 'vomiting': 6, 'toxicity': 6, 'eye': 6, 'adr': 6,
+                'lump': 7, 'skin': 7, 'ears': 7, 'blood': 7,
+                'limping': 8, 'scooting': 8, 'seizures': 8, 'food': 8
+            };
+            
+            // Initialize symptom section data
+            function initializeSymptomData() {
+                const symptomIds = Object.keys(symptomPageMap);
+                symptomIds.forEach(id => {
+                    const section = document.getElementById(id);
+                    if (section) {
+                        allSymptomSections[id] = {
+                            html: section.innerHTML,
+                            page: symptomPageMap[id],
+                            title: section.querySelector('h2')?.textContent || id
+                        };
+                    }
+                });
+            }
+            
+            // Initialize symptom data
+            initializeSymptomData();
+            
+            // Symptom search and navigation functionality - NOW CROSS-PAGE
             function setupSymptomNavigation() {
                 // Only set up on symptom pages
                 if (currentPage < 6 || currentPage > 8) return;
                 
                 let searchInput;
                 if (currentPage === 6) {
-                    searchInput = document.getElementById('symptom-search');
+                    searchInput = document.getElementById('symptom-search-all');
                 } else if (currentPage === 7) {
-                    searchInput = document.getElementById('symptom-search-7');
+                    searchInput = document.getElementById('symptom-search-all-7');
                 } else if (currentPage === 8) {
-                    searchInput = document.getElementById('symptom-search-8');
+                    searchInput = document.getElementById('symptom-search-all-8');
                 }
                 
                 const symptomNavBtns = document.querySelectorAll('.symptom-nav-btn');
-                let originalContents = new Map();
                 
-                // Store original content for resetting
-                document.querySelectorAll('.symptom-section').forEach(section => {
-                    originalContents.set(section.id, section.innerHTML);
-                });
-                
-                // Search functionality
+                // Search functionality - searches ALL symptom pages
                 if (searchInput) {
                     searchInput.addEventListener('input', function() {
                         const searchTerm = this.value.toLowerCase().trim();
-                        const symptomSections = document.querySelectorAll('.symptom-section');
                         
                         if (searchTerm.length > 0) {
-                            // Search through all symptoms
-                            symptomSections.forEach(section => {
-                                const text = section.textContent.toLowerCase();
+                            // Search through ALL symptoms across pages
+                            Object.keys(allSymptomSections).forEach(symptomId => {
+                                const symptomData = allSymptomSections[symptomId];
+                                const text = symptomData.html.toLowerCase();
                                 
                                 if (text.includes(searchTerm)) {
-                                    section.style.display = 'block';
-                                    // Highlight search term
-                                    const html = originalContents.get(section.id);
-                                    const regex = new RegExp(`(${searchTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
-                                    section.innerHTML = html.replace(regex, '<span class="highlight">$1</span>');
-                                } else {
-                                    section.style.display = 'none';
+                                    // Check if we're on the right page
+                                    if (currentPage === symptomData.page) {
+                                        // We're on the correct page, show and highlight
+                                        const section = document.getElementById(symptomId);
+                                        if (section) {
+                                            section.style.display = 'block';
+                                            const regex = new RegExp(`(${searchTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+                                            section.innerHTML = symptomData.html.replace(regex, '<span class="highlight">$1</span>');
+                                        }
+                                    } else {
+                                        // We're on a different page, show a message
+                                        console.log(`Found "${symptomId}" on page ${symptomData.page}`);
+                                    }
+                                } else if (currentPage === symptomData.page) {
+                                    // Hide sections on current page that don't match
+                                    const section = document.getElementById(symptomId);
+                                    if (section) {
+                                        section.style.display = 'none';
+                                    }
                                 }
                             });
                         } else {
-                            // Show all sections and restore original content
-                            symptomSections.forEach(section => {
-                                section.style.display = 'block';
-                                if (originalContents.has(section.id)) {
-                                    section.innerHTML = originalContents.get(section.id);
+                            // Show all sections on current page and restore original content
+                            Object.keys(allSymptomSections).forEach(symptomId => {
+                                const symptomData = allSymptomSections[symptomId];
+                                if (currentPage === symptomData.page) {
+                                    const section = document.getElementById(symptomId);
+                                    if (section) {
+                                        section.style.display = 'block';
+                                        section.innerHTML = symptomData.html;
+                                    }
                                 }
                             });
                         }
                     });
                 }
                 
-                // Quick navigation button functionality
+                // Quick navigation button functionality with cross-page support
                 symptomNavBtns.forEach(btn => {
                     btn.addEventListener('click', function() {
                         const targetId = this.getAttribute('data-target');
-                        const targetSection = document.getElementById(targetId);
+                        const targetPage = symptomPageMap[targetId];
                         
-                        if (targetSection) {
-                            // Scroll to the section
-                            targetSection.scrollIntoView({ behavior: 'smooth' });
-                            
-                            // Highlight the active button
-                            symptomNavBtns.forEach(b => b.classList.remove('active'));
-                            this.classList.add('active');
-                            
-                            // Highlight the section briefly
-                            const originalColor = targetSection.style.backgroundColor;
-                            targetSection.style.backgroundColor = 'rgba(249, 200, 53, 0.2)';
-                            setTimeout(() => {
-                                targetSection.style.backgroundColor = originalColor;
-                            }, 2000);
+                        if (targetPage) {
+                            if (currentPage === targetPage) {
+                                // On same page, just scroll to section
+                                const targetSection = document.getElementById(targetId);
+                                if (targetSection) {
+                                    targetSection.scrollIntoView({ behavior: 'smooth' });
+                                    
+                                    // Highlight the active button
+                                    symptomNavBtns.forEach(b => b.classList.remove('active'));
+                                    this.classList.add('active');
+                                    
+                                    // Highlight the section briefly
+                                    const originalColor = targetSection.style.backgroundColor;
+                                    targetSection.style.backgroundColor = 'rgba(249, 200, 53, 0.2)';
+                                    setTimeout(() => {
+                                        targetSection.style.backgroundColor = originalColor;
+                                    }, 2000);
+                                }
+                            } else {
+                                // Need to navigate to different page
+                                goToPage(targetPage);
+                                
+                                // Scroll to the section after page loads
+                                setTimeout(() => {
+                                    const targetSection = document.getElementById(targetId);
+                                    if (targetSection) {
+                                        targetSection.scrollIntoView({ behavior: 'smooth' });
+                                        
+                                        // Highlight the section briefly
+                                        const originalColor = targetSection.style.backgroundColor;
+                                        targetSection.style.backgroundColor = 'rgba(249, 200, 53, 0.2)';
+                                        setTimeout(() => {
+                                            targetSection.style.backgroundColor = originalColor;
+                                        }, 2000);
+                                    }
+                                }, 300);
+                            }
                         }
                     });
                 });
