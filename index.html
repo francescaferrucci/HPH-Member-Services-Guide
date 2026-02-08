@@ -64,6 +64,14 @@
             font-size: 1.8rem;
             font-weight: bold;
             color: var(--hannah-green);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .logo-main:hover {
+            color: var(--hannah-blue);
+            text-decoration: underline;
         }
         
         .logo-subtitle {
@@ -501,6 +509,25 @@
             border-bottom: none;
         }
         
+        /* PDF link styling */
+        .pdf-link {
+            color: var(--hannah-blue);
+            text-decoration: none;
+            font-weight: bold;
+            padding: 0.3rem 0.6rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .pdf-link:hover {
+            background-color: rgba(0, 168, 232, 0.1);
+            text-decoration: underline;
+            transform: translateY(-1px);
+        }
+        
         /* Responsive design */
         @media (max-width: 768px) {
             .flipbook-container {
@@ -581,7 +608,7 @@
     <header class="logo-header">
         <div class="logo-container">
             <div class="logo-text">
-                <div class="logo-main">HANNAH PET HOSPITAL</div>
+                <div class="logo-main" id="home-logo">HANNAH PET HOSPITAL</div>
                 <div class="logo-subtitle">Member Services Reference Manual</div>
             </div>
         </div>
@@ -1003,7 +1030,21 @@
             <div class="page" id="page7">
                 <h1>Symptom Guides - Part 2</h1>
                 
-                <!-- Continue with symptom sections -->
+                <!-- Search Bar for Page 7 -->
+                <div class="search-container">
+                    <div class="search-icon">🔍</div>
+                    <input type="text" class="search-input" id="symptom-search-7" placeholder="Search symptoms (e.g., lump, skin, ears, blood)...">
+                </div>
+
+                <!-- Quick Symptom Navigation for Page 7 -->
+                <div class="symptom-nav">
+                    <button class="symptom-nav-btn" data-target="lump">🔘 Lump/Mass</button>
+                    <button class="symptom-nav-btn" data-target="skin">🤚 Skin/Itching</button>
+                    <button class="symptom-nav-btn" data-target="ears">👂 Ear Issues</button>
+                    <button class="symptom-nav-btn" data-target="blood">💉 Blood in Urine/Stool</button>
+                </div>
+
+                <!-- Continue with symptom sections with proper classes -->
                 <div class="symptom-section" id="lump">
                     <h2>Lump/Mass</h2>
                     <ul>
@@ -1066,6 +1107,12 @@
             <div class="page" id="page8">
                 <h1>Symptom Guides - Part 3</h1>
                 
+                <!-- Search Bar for Page 8 -->
+                <div class="search-container">
+                    <div class="search-icon">🔍</div>
+                    <input type="text" class="search-input" id="symptom-search-8" placeholder="Search symptoms (e.g., limping, scooting, seizures)...">
+                </div>
+
                 <!-- Quick Symptom Navigation (also on page 8) -->
                 <div class="symptom-nav">
                     <button class="symptom-nav-btn" data-target="limping">🦵 Limping</button>
@@ -1115,18 +1162,20 @@
                     </div>
                 </div>
                 
-                <h2>Food & Diets</h2>
-                <h3>Recommended Brands:</h3>
-                <ul>
-                    <li>Royal Canin</li>
-                    <li>Hill's Science Diet</li>
-                    <li>Purina Pro Plan</li>
-                    <li>Purina Veterinary Diets</li>
-                </ul>
-                <h3>Bland Diet (2:1 starch:protein):</h3>
-                <div class="highlight-box">
-                    <strong>Protein:</strong> Boiled chicken/turkey, ground beef/turkey (fat removed), low-fat cottage cheese<br>
-                    <strong>Starch:</strong> Rice, oatmeal, pasta
+                <div class="symptom-section" id="food">
+                    <h2>Food & Diets</h2>
+                    <h3>Recommended Brands:</h3>
+                    <ul>
+                        <li>Royal Canin</li>
+                        <li>Hill's Science Diet</li>
+                        <li>Purina Pro Plan</li>
+                        <li>Purina Veterinary Diets</li>
+                    </ul>
+                    <h3>Bland Diet (2:1 starch:protein):</h3>
+                    <div class="highlight-box">
+                        <strong>Protein:</strong> Boiled chicken/turkey, ground beef/turkey (fat removed), low-fat cottage cheese<br>
+                        <strong>Starch:</strong> Rice, oatmeal, pasta
+                    </div>
                 </div>
             </div>
             
@@ -1247,6 +1296,8 @@
                     <li><strong>Medical Emails:</strong><br>
                         HE1: PortlandMedical@hannahpethospital.com<br>
                         HE2: TigardMedical@hannahpethospital.com</li>
+                    <li><strong>Vaccine Policy:</strong><br>
+                        <a href="Vaccine Policy.pdf" class="pdf-link" target="_blank">📄 View Vaccine Policy PDF</a></li>
                 </ul>
                 
                 <div style="margin-top: 2rem; padding-top: 1rem; border-top: 2px solid var(--hannah-yellow); text-align: center;">
@@ -1290,6 +1341,7 @@
             const prevBtn = document.getElementById('prev-btn');
             const nextBtn = document.getElementById('next-btn');
             const homeBtn = document.getElementById('home-btn');
+            const homeLogo = document.getElementById('home-logo');
             const printBtn = document.getElementById('print-btn');
             const currentPageEl = document.getElementById('current-page');
             const totalPagesEl = document.getElementById('total-pages');
@@ -1302,6 +1354,11 @@
             
             // Home button event listener
             homeBtn.addEventListener('click', function() {
+                goToPage(1);
+            });
+            
+            // Home logo click event
+            homeLogo.addEventListener('click', function() {
                 goToPage(1);
             });
             
@@ -1363,16 +1420,22 @@
                 // Only set up on symptom pages
                 if (currentPage < 6 || currentPage > 8) return;
                 
-                const searchInput = document.getElementById('symptom-search');
+                let searchInput;
+                if (currentPage === 6) {
+                    searchInput = document.getElementById('symptom-search');
+                } else if (currentPage === 7) {
+                    searchInput = document.getElementById('symptom-search-7');
+                } else if (currentPage === 8) {
+                    searchInput = document.getElementById('symptom-search-8');
+                }
+                
                 const symptomNavBtns = document.querySelectorAll('.symptom-nav-btn');
                 let originalContents = new Map();
                 
                 // Store original content for resetting
-                if (currentPage === 6 || currentPage === 7 || currentPage === 8) {
-                    document.querySelectorAll('.symptom-section').forEach(section => {
-                        originalContents.set(section.id, section.innerHTML);
-                    });
-                }
+                document.querySelectorAll('.symptom-section').forEach(section => {
+                    originalContents.set(section.id, section.innerHTML);
+                });
                 
                 // Search functionality
                 if (searchInput) {
