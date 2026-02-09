@@ -294,6 +294,7 @@
         }
         
         /* Navigation controls */
+        /* Navigation controls - UPDATED */
         .controls {
             position: fixed;
             bottom: 0;
@@ -307,13 +308,24 @@
             box-shadow: 0 -4px 12px rgba(0, 60, 113, 0.1);
             z-index: 100;
             height: 70px;
+            gap: 1rem; /* Added gap between buttons */
+        }
+        
+        /* Center button group - NEW */
+        .center-buttons {
+            display: flex;
+            gap: 0.5rem; /* Space between Home and Print buttons */
+            flex-wrap: nowrap; /* Prevent wrapping */
+            justify-content: center;
+            flex: 1; /* Take available space */
+            max-width: 200px; /* Limit width to prevent overlap */
         }
         
         .btn {
             background: var(--hannah-navy);
             color: white;
             border: none;
-            padding: 0.6rem 1.0rem;
+            padding: 0.6rem 1.2rem;
             border-radius: 4px;
             cursor: pointer;
             font-family: 'Teen', sans-serif;
@@ -322,6 +334,8 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            white-space: nowrap; /* Prevent text wrapping */
+            flex-shrink: 0; /* Prevent button shrinking */
         }
         
         .btn:hover {
@@ -336,6 +350,46 @@
         
         .btn.next {
             background: var(--hannah-blue);
+        }
+        
+        /* Responsive design - UPDATE this section too */
+        @media (max-width: 768px) {
+            .controls {
+                padding: 0.6rem 1rem;
+                height: 60px;
+                gap: 0.5rem; /* Smaller gap on mobile */
+            }
+            
+            .btn {
+                padding: 0.5rem 0.8rem; /* Slightly smaller padding */
+                font-size: 0.85rem;
+            }
+            
+            .center-buttons {
+                max-width: 150px; /* Smaller max width on mobile */
+                gap: 0.3rem; /* Smaller gap on mobile */
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .controls {
+                padding: 0.5rem 0.8rem;
+                gap: 0.3rem;
+            }
+            
+            .btn {
+                padding: 0.4rem 0.6rem;
+                font-size: 0.75rem;
+            }
+            
+            .btn span {
+                display: none; /* Hide arrow icons on very small screens */
+            }
+            
+            .center-buttons {
+                max-width: 120px;
+                gap: 0.2rem;
+            }
         }
         
         /* Content tabs */
@@ -1385,20 +1439,21 @@
     </div> <!-- Close flipbook-container div -->
 
     <!-- Navigation controls with Home button -->
-    <div class="controls">
-        <button class="btn prev" id="prev-btn">
-            <span>◀</span> Previous
-        </button>
-        
-        <div>
-            <button class="btn" id="home-btn">🏠 Home</button>
-            <button class="btn" id="print-btn">Print</button>
-        </div>
-        
-        <button class="btn next" id="next-btn">
-            Next <span>▶</span>
-        </button>
+    <!-- Navigation controls with Home button - UPDATED -->
+<div class="controls">
+    <button class="btn prev" id="prev-btn">
+        <span>◀</span> Previous
+    </button>
+    
+    <div class="center-buttons">
+        <button class="btn" id="home-btn">🏠 Home</button>
+        <button class="btn" id="print-btn">Print</button>
     </div>
+    
+    <button class="btn next" id="next-btn">
+        Next <span>▶</span>
+    </button>
+</div>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
